@@ -525,7 +525,7 @@ path:hover {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 900px;
+  height: 800px;
   gap: 90px;
   background-color: brown;
   width: 100%;
@@ -535,14 +535,13 @@ path:hover {
 
 .card1, .card2, .card3 {
   width: 400px;
-  height: 700px;
+  height: 600px;
   background: aliceblue;
   border-radius: 20px;
 
 
-
 .img-books {
-  width: 400px;
+  width: 100%;
   height: 325px;
 }
 }
