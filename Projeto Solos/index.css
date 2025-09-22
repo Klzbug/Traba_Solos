@@ -531,6 +531,7 @@ path:hover {
   width: 100%;
   padding: 0 90px; /* Aumenta o espaço lateral */
   box-sizing: border-box; /* Garante que o padding não quebre o layout */
+  color: brown;
 }
 
 .card1, .card2, .card3 {
@@ -544,6 +545,13 @@ path:hover {
   width: 100%;
   height: 350px;
   border-radius: 20px 20px 0 0;
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 15px;
+  color: brown;
 }
 
 .box-tree {
