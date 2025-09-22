@@ -538,6 +538,13 @@ path:hover {
   height: 700px;
   background: aliceblue;
   border-radius: 20px;
+
+
+
+.img-books {
+  width: 400px;
+  height: 325px;
+}
 }
 
 .box-tree {
