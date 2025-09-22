@@ -26,9 +26,9 @@ function nextImage() {
 }
 
 
-	const description = document.querySelector(".tooltip");
+const description = document.querySelector(".tooltip");
 
-		document.querySelectorAll('path').forEach((el) => {
+	document.querySelectorAll('path').forEach((el) => {
 
 			el.addEventListener('mouseover', (event) => {
 				event.target.className = ("enabled");
