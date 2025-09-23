@@ -339,6 +339,17 @@ path:hover {
   background: linear-gradient(#ececec, #ececec);
 }
 
+.container1 a {
+  text-decoration: none;
+    text-align: center;
+    color: brown;
+    font-weight: bold;
+    padding: 2.5px 20px;
+    border: 2px solid brown;
+    border-radius: 50px;
+}
+  
+
 /* Área do carrossel */
 .card-wrapper {
   max-width: 1120px;
@@ -383,7 +394,7 @@ path:hover {
 }
 
 .card-list .card-item .card-link:hover {
-  border-color: #5372f0;
+  border-color: brown;
 }
 
 .card-list .card-link .card-image {
@@ -441,19 +452,19 @@ path:hover {
 .card-list .card-link .card-buttom {
   height: 35px;
   width: 35px;
-  color: #5372f8;
+  color: brown;
   border-radius: 50%;
   margin: 30px 0 5px;
   background: none;
   cursor: pointer;
-  border: 2px solid #5372f8;
+  border: 2px solid brown;
   transform: rotate(-45deg);
   transition: 0.4s ease;
 }
 
 .card-list .card-link:hover .card-buttom {
   color: aliceblue;
-  background: #5372f0;
+  background: brown;
 }
 
 /* Paginação do Swiper */
@@ -461,7 +472,7 @@ path:hover {
   height: 13px;
   width: 13px;
   opacity: 0.5;
-  background: #5372f0;
+  background: brown;
   transition: opacity 0.3s;
 }
 
@@ -480,7 +491,7 @@ path:hover {
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #5372f0;
+  color: brown;
   background-color : transparent;
   border-radius: 50%;
   padding: 10px;
@@ -525,7 +536,7 @@ path:hover {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 700px;
+  height: 900px;
   gap: 90px;
   background-color: brown;
   width: 100%;
@@ -536,7 +547,7 @@ path:hover {
 
 .card1, .card2, .card3 {
   width: 300px;
-  height: 580px;
+  height: 600px;
   background: aliceblue;
   border-radius: 20px;
 }
@@ -547,25 +558,41 @@ path:hover {
   border-radius: 20px 20px 0 0;
 }
 
- . {
-  height: 400px;
-  font-size: 1.5rem;
-  text-align: center;
-  margin-top: 15px;
-  color: brown;
-}
 
 .box-tree {
     display: flex;
     justify-content: center; /* centraliza horizontalmente */
     align-items: center;     /* centraliza verticalmente */
     gap: 20px;               /* espaço entre as caixas */
-    height: 700px;           /* altura do container (igual às caixas) */
+    height: 800px;           /* altura do container (igual às caixas) */
 }
 
-.a {
-    text-decoration: none;
-    color: brown;
+.cima {
+    text-align: center;
+    margin: 0px 0 -85px 0; /* margem em cima e embaixo */
+    font-size: 2.5rem;
+    color: aliceblue;
     font-weight: bold;
 }
 
+
+.geral a {
+    text-decoration: none;
+    text-align: center;
+    color: brown;
+    font-weight: bold;
+    padding: 2.5px 20px;
+}
+
+.geral a:hover {
+    color: rgb(255, 0, 0);
+    transition: 1s;
+}
+
+.tree {
+    color: brown;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 15px;
+}
