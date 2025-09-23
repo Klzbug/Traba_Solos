@@ -525,7 +525,7 @@ path:hover {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  height: 800px;
+  height: 700px;
   gap: 90px;
   background-color: brown;
   width: 100%;
@@ -535,19 +535,20 @@ path:hover {
 }
 
 .card1, .card2, .card3 {
-  width: 400px;
-  height: 600px;
+  width: 300px;
+  height: 580px;
   background: aliceblue;
   border-radius: 20px;
 }
 
 .img-books {
   width: 100%;
-  height: 350px;
+  height: 400px;
   border-radius: 20px 20px 0 0;
 }
 
-h1 {
+ . {
+  height: 400px;
   font-size: 1.5rem;
   text-align: center;
   margin-top: 15px;
@@ -560,5 +561,11 @@ h1 {
     align-items: center;     /* centraliza verticalmente */
     gap: 20px;               /* espaço entre as caixas */
     height: 700px;           /* altura do container (igual às caixas) */
+}
+
+.a {
+    text-decoration: none;
+    color: brown;
+    font-weight: bold;
 }
 
