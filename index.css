@@ -209,7 +209,7 @@ header .navbar a:hover {
     justify-content: center; /* centraliza horizontalmente */
     align-items: center;     /* centraliza verticalmente */
     gap: 20px;               /* espaço entre as caixas */
-    height: 100px;           /* altura do container (igual às caixas) */
+    height: 120px;           /* altura do container (igual às caixas) */
 }
 
 .box1, .box2 {
@@ -219,9 +219,25 @@ header .navbar a:hover {
 .box1 {
     background: url("Images/barroso.jpg") no-repeat center center;
     background-size: cover;
-    width: 570px;
-    height: 270px;
+    width: 600px;
+    height: 300px;
 }
+
+.box2 p {
+    height: 90px;
+    text-align: justify;
+    font-size: 14px;
+    color: black;
+    background-color: #ecececec;
+  }
+
+  .box2 h1 {
+    height: 30px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: brown;
+    background-color: #ecececec;
+  }
 
 .box2 {
     background: #ecececec;
@@ -247,6 +263,22 @@ header .navbar a:hover {
     width: 570px;
     height: 250px;
 }
+
+.box4 p {
+    height: 90px;
+    text-align: justify;
+    font-size: 0.9rem;
+    color: black;
+    background-color: #ecececec;
+  }
+
+  .box4 h1 {
+    height: 30px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: brown;
+    background-color: #ecececec;
+  }
 
 .box4 {
     background: #ecececec;
@@ -421,11 +453,11 @@ path:hover {
   background: #dfe0e0;
 }
 .card-list .card-link .badge.pedroso {
-  color: #35df26;
+  color: #177c0d;
   background: #dfdfdf;
 }
 .card-list .card-link .badge.mar {
-  color: #c3d616;
+  color: #aabd03;
   background: #ebf2f7;
 }
 .card-list .card-link .badge.neve {
