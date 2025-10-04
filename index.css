@@ -288,16 +288,23 @@ header .navbar a:hover {
 
 /*INICIO CSS DO MAPA*/
 
+
 .container {
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 50px;
-  margin-top: 160px; /* Adiciona espaço abaixo do header */
+  margin-top: 170px; /* Adiciona espaço abaixo do header */
   flex-wrap: wrap;
   position: relative;
   z-index: 1;
+}
+.container h1 {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  color: brown;
 }
 
 svg {
