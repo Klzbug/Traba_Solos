@@ -1,4 +1,4 @@
-.janela-modal {
+.janela-PE {
   display: none; 
   position: fixed;
   top: 0;
@@ -11,11 +11,11 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-.janela-modal.abrir {
+.janela-PE.abrir13 {
   display: flex;
 }
 
-.modal {
+.modal_PE {
   position: relative;
   width: 60%;
   background: rgba(255, 255, 255, 0.9);
@@ -24,7 +24,7 @@
   border-radius: 20px;
 }
 
-.fechar {
+.fechar13 {
   position: absolute;
   top: -7px;
   right: -7px;
