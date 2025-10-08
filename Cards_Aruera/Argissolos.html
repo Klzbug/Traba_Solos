@@ -5,19 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solos.Argi</title>
     <style>
+        
         body {
-            background: linear-gradient(to right, #f0f8ff, #f7d5d5);
-            padding: 50px;
-            
+            background-color: #F5F5DC;
+            font-family: 'Arial', sans-serif;
+            color: #5D4037;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
+
+        .content-container {
+            max-width: 800px;
+            width: 90%;
+            background-color: #EDEAE1;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 40px;
+            border-left: 5px solid #B77C4A;
+        }
+
         h1 {
             text-align: center;
-            color: brown;
+            color: #5D4037;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #B77C4A;
+            padding-bottom: 10px;
         }
+
+        .argi-dec {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 5px solid #B77C4A;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            font-size: 1.1em;
+            text-align: justify;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+
+        p strong {
+            color: #B77C4A;
+        }
+
     </style>
 </head>
-<body class="Argi" id="Argi">
-    <h1>Como funciona o argissolos</h1>
-    <p>Argissolos são solos minerais que se distinguem por um horizonte B textural (Bt), onde há acúmulo de argila proveniente da camada superficial, criando um contraste textural entre as camadas do solo. Esses solos, comuns em todo o Brasil, são geralmente de fertilidade baixa, com alto teor de alumínio e suscetíveis à erosão, mas podem ser adaptados para diversas culturas agrícolas com manejo adequado. </p>
+<body>
+    <div class="content-container">
+        <h1>Como funciona: Argissolos</h1>
+        
+        <img src="/Images/argi.jpg" alt="Perfil de solo argissolo" class="argi-dec">
+        
+        <p>
+            <strong>Argissolos</strong> são solos minerais que se distinguem por um <strong>horizonte B textural (Bt)</strong>, onde há acúmulo de argila proveniente da camada superficial (horizonte A), criando um <strong>contraste textural</strong> acentuado entre as camadas do solo. 
+            Esses solos, comuns em todo o Brasil, são geralmente de <strong>fertilidade baixa</strong>, com alto teor de alumínio e <strong>suscetíveis à erosão</strong> se mal manejados. No entanto, podem ser adaptados para diversas culturas agrícolas com manejo adequado, incluindo correção de acidez e adubação para melhorar sua produtividade.
+        </p>
+    </div>
 </body>
 </html>
