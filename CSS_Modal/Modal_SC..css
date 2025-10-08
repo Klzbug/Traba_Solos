@@ -1,4 +1,4 @@
-.janela-SE {
+.janela-SC {
   display: none; 
   position: fixed;
   top: 0;
@@ -11,11 +11,11 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
-.janela-SE.abrir {
+.janela-SC.abrir18 {
   display: flex;
 }
 
-.modal_SE {
+.modal_SC {
    position: relative;
   width: 80%;
   height: 60%;
@@ -25,7 +25,7 @@
   border-radius: 20px;
 }
 
-.fechar {
+.fechar18 {
   position: absolute;
   top: -7px;
   right: -7px;

@@ -16,11 +16,12 @@
 }
 
 .modal_PB {
-  position: relative;
-  width: 60%;
+   position: relative;
+  width: 80%;
+  height: 60%;
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
-  padding: 50px;
+  padding: 120px;
   border-radius: 20px;
 }
 
