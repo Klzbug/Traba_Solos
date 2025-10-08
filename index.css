@@ -6,88 +6,88 @@
 }
 
 body {
-    background-color: #ecececec;
+  background-color: #ecececec;
 }
 
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 80px;
-    background-color: brown;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 9%;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-    z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: brown;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 9%;
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+  z-index: 999;
 }
 
 header .logotrees {
-    position: relative;
-    width: 2.5rem;
+  position: relative;
+  width: 2.5rem;
 }
 
 header .navbar a {
-    position: relative;
-    display: inline-block;
-    font-size: 1.2rem;
-    color: antiquewhite;
-    margin-left: 2rem;
-    text-decoration: none;
+  position: relative;
+  display: inline-block;
+  font-size: 1.2rem;
+  color: antiquewhite;
+  margin-left: 2rem;
+  text-decoration: none;
 }
 
 header .navbar a:hover {
-    color: rgb(182, 216, 29);
+  color: rgb(182, 216, 29);
 }
 
 .toggle-btn {
-    position: relative;
-    font-size: 2rem;
-    color: antiquewhite;
-    cursor: pointer;
+  position: relative;
+  font-size: 2rem;
+  color: antiquewhite;
+  cursor: pointer;
     display: none !important;  /* <-- forçado esconder por padrão */
 }
 
 /*BREAKPOINTS*/
 
 @media (max-width: 992px) {
-    header {
-        padding: 0 5%;
-    }
+  header {
+    padding: 0 5%;
+  }
 }
 
 @media (max-width: 768px) {
-    .toggle-btn {
+  .toggle-btn {
         display: block !important;  /* <-- forçado mostrar só em telas pequenas */
-    }
+  }
 
-    .toggle-btn.active::before {
-        content: 'x ';
-    }
+  .toggle-btn.active::before {
+    content: 'x ';
+  }
 
-    header .navbar {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: brown;
-        padding: 0 5%;
-        box-shadow: 0 1rem 1rem rgba(0, 0, 0, .3);
-        transform: scale(0);
-        transition: .30s;
-        transform-origin: top center;
-    }
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: brown;
+    padding: 0 5%;
+    box-shadow: 0 1rem 1rem rgba(0, 0, 0, .3);
+    transform: scale(0);
+    transition: .30s;
+    transform-origin: top center;
+  }
 
-    header .navbar.active {
-        transform: scale(1);
-    }
+  header .navbar.active {
+    transform: scale(1);
+  }
 
-    header .navbar a {
-        display: block;
-        margin: 1.5rem 0;
-    }
+  header .navbar a {
+    display: block;
+    margin: 1.5rem 0;
+  }
 }
 
 /*FIM DOS BREAKEEPOINTS*/
@@ -97,27 +97,27 @@ header .navbar a:hover {
 
 .slider {
     width: 100vw; /* ocupa 100% da largura da tela */
-    height: 400px;
-    overflow: hidden;
-    position: relative;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
     margin-top: 80px; /* deixa espaço para a navbar fixa */
 }
 
 
 .slides {
     width: 400vw; /* 4 slides de 100vw cada */
-    height: 250px;
-    display: flex;
+  height: 250px;
+  display: flex;
 }
 
 
 .slides input {
-    display: none;
+  display: none;
 }
 
 .slide {
-    width: 100vw;
-    transition: 2s;
+  width: 100vw;
+  transition: 2s;
 }
 
 
@@ -129,83 +129,83 @@ header .navbar a:hover {
 
 
 .manual-navigation {
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    z-index: 10;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  z-index: 10;
 }
 
 
 .manual-btn {
-    border: 2px solid floralwhite;
-    padding: 5px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
+  border: 2px solid floralwhite;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
 }
 
 .manual-btn:not(:last-child){
-    margin-right: 40px;
+  margin-right: 40px;
 }
 
 .manual-btn:hover {
-    background-color: aliceblue;
+  background-color: aliceblue;
 }
 
 #radio1:checked ~ .first {
-    margin-left: 0;
+  margin-left: 0;
 }
 
 #radio2:checked ~ .first {
-    margin-left: -25%;
+  margin-left: -25%;
 }
 
 #radio3:checked ~ .first {
-    margin-left: -50%;
+  margin-left: -50%;
 }
 
 #radio4:checked ~ .first {
-    margin-left: -75%;
+  margin-left: -75%;
 }
 
 
 .navigation-auto {
-    bottom: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    z-index: 9;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  z-index: 9;
 }
 
 
 .navigation-auto div:not(:last-child) {
-    margin-right: 40px;
+  margin-right: 40px;
 }
 
 #radio1:checked ~ .navigation-auto .auto-btn1 {
-    background-color: aliceblue;
+  background-color: aliceblue;
 }
 
 #radio2:checked ~ .navigation-auto .auto-btn2 {
-    background-color: aliceblue;
+  background-color: aliceblue;
 }
 
 #radio3:checked ~ .navigation-auto .auto-btn3 {
-    background-color: aliceblue;
+  background-color: aliceblue;
 }
 
 #radio4:checked ~ .navigation-auto .auto-btn4 {
-    background-color: aliceblue;
+  background-color: aliceblue;
 }
 
 
 /*INICIO DA PRIMEIRA BOX*/
 
 .box-first {
-    display: flex;
+  display: flex;
     justify-content: center; /* centraliza horizontalmente */
     align-items: center;     /* centraliza verticalmente */
     gap: 20px;               /* espaço entre as caixas */
@@ -213,40 +213,40 @@ header .navbar a:hover {
 }
 
 .box1, .box2 {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .box1 {
-    background: url("Images/barroso.jpg") no-repeat center center;
-    background-size: cover;
-    width: 600px;
-    height: 300px;
+  background: url("Images/barroso.jpg") no-repeat center center;
+  background-size: cover;
+  width: 600px;
+  height: 300px;
 }
 
 .box2 p {
-    height: 90px;
-    text-align: justify;
-    font-size: 14px;
-    color: black;
-    background-color: #ecececec;
-  }
+  height: 90px;
+  text-align: justify;
+  font-size: 14px;
+  color: black;
+  background-color: #ecececec;
+}
 
-  .box2 h1 {
-    height: 30px;
-    text-align: center;
-    font-size: 1.5rem;
-    color: brown;
-    background-color: #ecececec;
-  }
+.box2 h1 {
+  height: 30px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: brown;
+  background-color: #ecececec;
+}
 
 .box2 {
-    background: #ecececec;
-    height: 250px;
-    width: 570px;
+  background: #ecececec;
+  height: 250px;
+  width: 570px;
 }
 
 .box-second {
-    display: flex;
+  display: flex;
     justify-content: center; /* centraliza horizontalmente */
     align-items: center;     /* centraliza verticalmente */
     gap: 20px;               /* espaço entre as caixas */
@@ -254,36 +254,36 @@ header .navbar a:hover {
 }
 
 .box3, .box4 {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .box3 {
-    background: url("Images/barroso.jpg") no-repeat center center;
-    background-size: cover;
-    width: 570px;
-    height: 250px;
+  background: url("Images/barroso.jpg") no-repeat center center;
+  background-size: cover;
+  width: 570px;
+  height: 250px;
 }
 
 .box4 p {
-    height: 90px;
-    text-align: justify;
-    font-size: 0.9rem;
-    color: black;
-    background-color: #ecececec;
-  }
+  height: 90px;
+  text-align: justify;
+  font-size: 0.9rem;
+  color: black;
+  background-color: #ecececec;
+}
 
-  .box4 h1 {
-    height: 30px;
-    text-align: center;
-    font-size: 1.5rem;
-    color: brown;
-    background-color: #ecececec;
-  }
+.box4 h1 {
+  height: 30px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: brown;
+  background-color: #ecececec;
+}
 
 .box4 {
-    background: #ecececec;
-    height: 250px;
-    width: 570px;
+  background: #ecececec;
+  height: 250px;
+  width: 570px;
 }
 
 /*INICIO CSS DO MAPA*/
@@ -300,6 +300,7 @@ header .navbar a:hover {
   position: relative;
   z-index: 1;
 }
+
 .container h1 {
   width: 100%;
   text-align: center;
@@ -316,26 +317,31 @@ path {
   stroke: white;
   stroke-width: 1px;
 }
+
 path:hover {
   fill: purple;
   stroke: red;
   stroke-width: 3px;
-    transition: fill 0.7s;
+  transition: fill 0.7s;
 }
 
 /* Regiões */
 .norte {
   fill: #308b4b ;
 }
+
 .nordeste {
   fill: #f0b541;
 }
+
 .centro-oeste {
   fill: #ffae70;
 }
+
 .sudeste {
   fill: #4fa4b8;
 }
+
 .sul {
   fill: #686f99;
 }
@@ -380,12 +386,12 @@ path:hover {
 
 .container1 a {
   text-decoration: none;
-    text-align: center;
-    color: brown;
-    font-weight: bold;
-    padding: 2.5px 20px;
-    border: 2px solid brown;
-    border-radius: 50px;
+  text-align: center;
+  color: brown;
+  font-weight: bold;
+  padding: 2.5px 20px;
+  border: 2px solid brown;
+  border-radius: 50px;
 }
 
 
@@ -459,22 +465,27 @@ path:hover {
   color: #b92499;
   background: #dfe0e0;
 }
+
 .card-list .card-link .badge.pedroso {
   color: #177c0d;
   background: #dfdfdf;
 }
+
 .card-list .card-link .badge.mar {
   color: #aabd03;
   background: #ebf2f7;
 }
+
 .card-list .card-link .badge.neve {
   color: #6141b8;
   background: #e4e9ec;
 }
+
 .card-list .card-link .badge.duna {
   color: #2f00ff;
   background: #e6e9eb;
 }
+
 .card-list .card-link .badge.arenoso {
   color: #b92424;
   background: #dae1e6;
@@ -558,17 +569,17 @@ path:hover {
   .swiper-button-prev {
   left: 10px;  /* deixa a seta dentro do container, mas à esquerda */
   z-index: 20; /* garante que fique acima das imagens */
-}
+  }
 
-.swiper-button-next {
+  .swiper-button-next {
   right: 10px; /* mesma ideia para a direita */
-  z-index: 20;
-}
+    z-index: 20;
+  }
 }
 
 .card-wrapper {
   padding: 20px 40px; /* aumenta espaço nas laterais */
-}   
+}
 
 .geral {
   display: flex;
@@ -599,7 +610,7 @@ path:hover {
 
 
 .box-tree {
-    display: flex;
+  display: flex;
     justify-content: center; /* centraliza horizontalmente */
     align-items: center;     /* centraliza verticalmente */
     gap: 20px;               /* espaço entre as caixas */
@@ -607,25 +618,25 @@ path:hover {
 }
 
 .cima {
-    text-align: center;
+  text-align: center;
     margin: 0px 0 -85px 0; /* margem em cima e embaixo */
-    font-size: 2.5rem;
-    color: aliceblue;
-    font-weight: bold;
+  font-size: 2.5rem;
+  color: aliceblue;
+  font-weight: bold;
 }
 
 
 .geral a {
-    text-decoration: none;
-    text-align: center;
-    color: brown;
-    font-weight: bold;
-    padding: 2.5px 20px;
+  text-decoration: none;
+  text-align: center;
+  color: brown;
+  font-weight: bold;
+  padding: 2.5px 20px;
 }
 
 .geral a:hover {
-    color: rgb(255, 0, 0);
-    transition: 1s;
+  color: rgb(255, 0, 0);
+  transition: 1s;
 }
 
 .tree {
