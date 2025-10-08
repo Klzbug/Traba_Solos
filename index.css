@@ -228,7 +228,7 @@ header .navbar a:hover {
   text-align: justify;
   font-size: 14px;
   color: black;
-  background-color: #ecececec;
+  background-color: #ececec;
 }
 
 .box2 h1 {
@@ -240,7 +240,7 @@ header .navbar a:hover {
 }
 
 .box2 {
-  background: #ecececec;
+  background: #ececec;
   height: 250px;
   width: 570px;
 }
