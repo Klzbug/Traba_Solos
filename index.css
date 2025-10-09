@@ -353,14 +353,11 @@ path:hover {
   text-align: center;
   background: white;
   padding: 10px 15px;
-  z-index: 5;
+  z-index: 2;
   color: #21669e;
   border-radius: 5px;
-  display: none;
-  position: absolute; /* Agora ela pode ser posicionada com top e left */
-  top: 0;
-  left: 0;
-  transform: translate(-50%, -120%); /* sobe o tooltip acima do ponto */
+  display: flex;
+  transform: translate(-50%, -100%); /* sobe o tooltip acima do ponto */
 }
 .tooltip.active {
   display: block;
@@ -368,7 +365,7 @@ path:hover {
 
 .tooltip:after {
   content: "";
-  top: 20px;
+  top: 10px;
   margin-left: -10px;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
