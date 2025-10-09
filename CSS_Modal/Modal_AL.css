@@ -62,12 +62,12 @@
 
 .fechar7 {
   position: absolute;
-  top: -7px;
-  right: -7px;
+  top: 15px;
+  right: 15px;
   background: brown;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 8px 12px;
   border-radius: 50%;
   cursor: pointer;
   font-size: 16px;
