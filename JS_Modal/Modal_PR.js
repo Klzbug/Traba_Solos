@@ -2,16 +2,16 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('Modal_PR.js carregado');
 
   const modal_PR = document.getElementById('janela-PR');
-  const fechar19 = document.getElementById('fechar19');
+  const fechar27 = document.getElementById('fechar27');
 
   window.abrirModalPR = function() {
     console.log('abrirModalPR chamada');
-    modal_PR.classList.add('abrir19');
+    modal_PR.classList.add('abrir27');
   }
 
-  modal_PR.addEventListener('click', (e19) => {
-    if (e19.target.id === 'fechar19' || e19.target.id === 'janela-PR') {
-      modal_PR.classList.remove('abrir19');
+  modal_PR.addEventListener('click', (e27) => {
+    if (e27.target.id === 'fechar27' || e27.target.id === 'janela-PR') {
+      modal_PR.classList.remove('abrir27');
     }
   });
 });

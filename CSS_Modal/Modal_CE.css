@@ -1,5 +1,5 @@
 .janela-CE {
-  display: none; 
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -7,15 +7,15 @@
   height: 100vh;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
   background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
 }
 
 .janela-CE.abrir5 {
   display: flex;
 }
 
-.modal_CE {
+.modal_CE{
   position: relative;
   width: 90%;              /* ← aumentei de 80% para 90% */
   max-width: 1200px;       /* ← limite maior (antes era 900px) */
@@ -25,9 +25,13 @@
   overflow: hidden;
   padding: 20px;
   backdrop-filter: blur(10px);
+  padding: 120px;
+  border-radius: 20px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 1200px;
 }
 
 .modal-content-wrapper {
@@ -62,12 +66,12 @@
 
 .fechar5 {
   position: absolute;
-  top: -7px;
-  right: -7px;
+  top: 15px;
+  right: 15px;
   background: brown;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 8px 12px;
   border-radius: 50%;
   cursor: pointer;
   font-size: 16px;
@@ -83,4 +87,3 @@
     flex-direction: column;
   }
 }
-

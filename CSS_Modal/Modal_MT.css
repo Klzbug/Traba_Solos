@@ -1,5 +1,5 @@
 .janela-MT {
-  display: none; 
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -7,11 +7,11 @@
   height: 100vh;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
   background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
 }
 
-.janela-MT.abrir24 {
+.janela-MT.abrir25 {
   display: flex;
 }
 
@@ -25,9 +25,13 @@
   overflow: hidden;
   padding: 20px;
   backdrop-filter: blur(10px);
+  padding: 120px;
+  border-radius: 20px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 1200px;
 }
 
 .modal-content-wrapper {
@@ -60,21 +64,21 @@
   font-size: 1.8rem;
 }
 
-.fechar24 {
+.fechar25 {
   position: absolute;
-  top: -7px;
-  right: -7px;
+  top: 15px;
+  right: 15px;
   background: brown;
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 8px 12px;
   border-radius: 50%;
   cursor: pointer;
   font-size: 16px;
   transition: 0.3s;
 }
 
-.fechar24:hover {
+.fechar25:hover {
   background: rgb(102, 26, 26);
 }
 
