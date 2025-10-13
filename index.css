@@ -217,7 +217,7 @@ header .navbar a:hover {
 }
 
 .box1 {
-  background: url("Images/barroso.jpg") no-repeat center center;
+  background: url("Images/sool.jpg") no-repeat center center;
   background-size: cover;
   width: 600px;
   height: 300px;
@@ -244,7 +244,9 @@ header .navbar a:hover {
   height: 250px;
   width: 570px;
 }
+/*FIM DO PRIMEIRO*/
 
+/*INICIO DO SEGUNDO*/
 .box-second {
   display: flex;
     justify-content: center; /* centraliza horizontalmente */
@@ -258,18 +260,12 @@ header .navbar a:hover {
 }
 
 .box3 {
-  background: url("Images/article.jpg") no-repeat center center;
+  background: url("Images/brasillll.jpg") no-repeat center center;
   background-size: cover;
   width: 570px;
   height: 250px;
 }
 
-.box3 {
-  background: url("Images/article.jpg") no-repeat center center;
-  background-size: cover;
-  width: 570px;
-  height: 250px;
-}
 
 .box4 p {
   height: 90px;
@@ -293,8 +289,49 @@ header .navbar a:hover {
   width: 570px;
 }
 
+/*FIM DO SEGUNDO*/
+
+
+/*INICIO DA BOX 3*/
 .box-tree {
-  
+    display: flex;
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center;     /* centraliza verticalmente */
+    gap: 20px;               /* espaço entre as caixas */
+    height: 120px;           /* altura do container (igual às caixas) */
+}
+
+.box5, .box6 {
+  border-radius: 10px;
+}
+
+.box5 {
+  background: url("Images/save.jpg") no-repeat center center;
+  background-size: cover;
+  width: 600px;
+  height: 300px;
+}
+
+.box6 p {
+  height: 90px;
+  text-align: justify;
+  font-size: 14px;
+  color: black;
+  background-color: #ececec;
+}
+
+.box6 h1 {
+  height: 30px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: brown;
+  background-color: #ecececec;
+}
+
+.box6 {
+  background: #ececec;
+  height: 250px;
+  width: 570px;
 }
 
 /*INICIO CSS DO MAPA*/
