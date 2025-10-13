@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solos.Verti</title>
+    <style>
+        /* Cores Temáticas de Vertissolos (tons de preto, cinza e argila) */
+        
+        body {
+            /* Fundo remetendo a rachaduras ou solo escuro profundo */
+            background-image : linear-gradient(to right, #B2AFAF, #2C3E50 ); /* Cinza claro para Preto/Azul marinho escuro */
+            font-family: 'Arial', sans-serif;
+            color: #2C3E50; /* Cinza-azulado muito escuro para texto */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Container Principal (simulando a cor do solo argiloso e escuro) */
+        .content-container {
+            max-width: 800px;
+            width: 90%;
+            background-color: #E6E6E6; /* Cinza argila claro */
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            margin-top: 40px;
+            /* Borda remetendo ao cisalhamento (slickensides) */
+            border-left: 5px solid #5D7A94; 
+        }
+
+        /* Título */
+        h1 {
+            text-align: center;
+            color: #34495E; /* Cinza carvão/azulado */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #5D7A94;
+            padding-bottom: 10px;
+        }
+
+        /* Imagem */
+        .verti-dec {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            /* Borda em tom de argila escura e rica em matéria orgânica */
+            border: 5px solid #2C3E50; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Parágrafo de Conteúdo */
+        p {
+            font-size: 1.1em;
+            text-align: justify;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #FAFAFA; /* Fundo branco para melhor leitura */
+            border-radius: 5px;
+        }
+
+        /* Destacar termos chave */
+        p strong {
+            color: #34495E; /* Cor de destaque (Cinza carvão/azulado) */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <h1>Como funciona: Vertissolos</h1>
+        
+        <img src="/Images/Verti.jpg" alt="Perfil de solo Vertissolo com grandes rachaduras" class="verti-dec">
+        
+        <p>
+            Os <strong>Vertissolos</strong> são solos minerais de drenagem imperfeita, caracterizados pelo alto teor de <strong>argilas expansivas</strong> (principalmente a montmorilonita). Estes solos sofrem grandes mudanças de volume, <strong>contraindo-se intensamente</strong> na seca, formando profundas rachaduras, e <strong>expandindo-se</strong> quando úmidos.
+            Sua cor é geralmente <strong>preta ou muito escura</strong>, devido à presença de matéria orgânica e minerais ferromagnesianos. Essa movimentação constante (pedoturbação) leva à formação de superfícies de cisalhamento (<strong>slickensides</strong>) e microrrelevo (gilgai). Apesar das dificuldades de manejo devido à sua plasticidade, são solos naturalmente <strong>férteis</strong>, sendo usados para culturas de algodão, pastagens e cana-de-açúcar.
+        </p>
+    </div>
+</body>
+</html>
