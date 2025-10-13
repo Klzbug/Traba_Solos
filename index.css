@@ -258,7 +258,14 @@ header .navbar a:hover {
 }
 
 .box3 {
-  background: url("Images/barroso.jpg") no-repeat center center;
+  background: url("Images/article.jpg") no-repeat center center;
+  background-size: cover;
+  width: 570px;
+  height: 250px;
+}
+
+.box3 {
+  background: url("Images/article.jpg") no-repeat center center;
   background-size: cover;
   width: 570px;
   height: 250px;
@@ -284,6 +291,10 @@ header .navbar a:hover {
   background: #ecececec;
   height: 250px;
   width: 570px;
+}
+
+.box-tree {
+  
 }
 
 /*INICIO CSS DO MAPA*/
