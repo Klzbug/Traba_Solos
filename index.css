@@ -20,13 +20,13 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 0 9%;
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+  box-shadow: 0 .5rem 1rem rgba(53, 52, 52, 0.1);
   z-index: 999;
 }
 
 header .logotrees {
   position: relative;
-  width: 2.5rem;
+  width: 5.0rem;
 }
 
 header .navbar a {
@@ -45,7 +45,7 @@ header .navbar a:hover {
 .toggle-btn {
   position: relative;
   font-size: 2rem;
-  color: antiquewhite;
+  color: aliceblue;
   cursor: pointer;
     display: none !important;  /* <-- forçado esconder por padrão */
 }
@@ -204,89 +204,124 @@ header .navbar a:hover {
 
 /*INICIO DA PRIMEIRA BOX*/
 
+/* Container principal com flexbox */
 .box-first {
-  display: flex;
+    display: flex;
     justify-content: center; /* centraliza horizontalmente */
     align-items: center;     /* centraliza verticalmente */
-    gap: 20px;               /* espaço entre as caixas */
-    height: 120px;           /* altura do container (igual às caixas) */
+    gap: 50px;               /* espaço entre as caixas */
+    height: 360px;           /* mesma altura das caixas */
 }
 
+/* Estilo base para as caixas */
 .box1, .box2 {
-  border-radius: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
 }
 
+/* Caixa com imagem de fundo */
 .box1 {
-  background: url("Images/sool.jpg") no-repeat center center;
-  background-size: cover;
-  width: 600px;
-  height: 300px;
+    background: url("Images/sool.jpg") no-repeat center center;
+    background-size: cover;
+    width: 700px;
+    height: 400px;
 }
 
-.box2 p {
-  height: 90px;
-  text-align: justify;
-  font-size: 14px;
-  color: black;
-  background-color: #ececec;
-}
-
-.box2 h1 {
-  height: 30px;
-  text-align: center;
-  font-size: 1.5rem;
-  color: brown;
-  background-color: #ecececec;
-}
-
+/* Caixa de conteúdo textual */
 .box2 {
-  background: #ececec;
-  height: 250px;
-  width: 570px;
+    background-color: #ececec;
+    width: 600px;
+    height: 360px;
+    padding: 20px; /* opcional: adiciona espaço interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Título */
+.box2 h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    color: brown;
+    background-color: #ececec; /* corrigido valor errado */
+    height: auto; /* evita corte de texto */
+    margin: 0;
+}
+
+/* Parágrafo */
+.box2 p {
+    text-align: justify;
+    font-size: 16px;
+    color: black;
+    background-color: #ececec;
+    margin: 0;
+    height: auto; /* evita corte de texto */
 }
 /*FIM DO PRIMEIRO*/
 
 /*INICIO DO SEGUNDO*/
+/* Texto da primeira seção */
+.box2 p {
+    text-align: justify;
+    font-size: 16px;
+    color: black;
+    background-color: #ececec;
+    margin: 0;
+    height: auto;
+}
+
+/* INÍCIO DA SEGUNDA SEÇÃO */
 .box-second {
-  display: flex;
-    justify-content: center; /* centraliza horizontalmente */
-    align-items: center;     /* centraliza verticalmente */
-    gap: 20px;               /* espaço entre as caixas */
-    height: 500px;           /* altura do container (igual às caixas) */
+    display: flex;
+    justify-content: center;   /* centraliza horizontalmente */
+    align-items: center;       /* centraliza verticalmente */
+    gap: 20px;                 /* espaço entre as caixas */
+    height: 300px;             /* ajustado para combinar com .box3 e .box4 */
 }
 
 .box3, .box4 {
-  border-radius: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
 }
 
+/* Caixa com imagem */
 .box3 {
-  background: url("Images/brasillll.jpg") no-repeat center center;
-  background-size: cover;
-  width: 570px;
-  height: 250px;
+    background: url("Images/brasillll.jpg") no-repeat center center;
+    background-size: cover;
+    width: 570px;
+    height: 280px;
 }
 
-
-.box4 p {
-  height: 90px;
-  text-align: justify;
-  font-size: 0.9rem;
-  color: black;
-  background-color: #ecececec;
-}
-
-.box4 h1 {
-  height: 30px;
-  text-align: center;
-  font-size: 1.5rem;
-  color: brown;
-  background-color: #ecececec;
-}
-
+/* Caixa com texto */
 .box4 {
-  background: #ecececec;
-  height: 250px;
-  width: 570px;
+    background-color: #ececec; /* corrigido */
+    width: 570px;
+    height: 280px;             /* igual à box3 para manter alinhamento */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Título */
+.box4 h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: brown;
+    background-color: #ececec;
+    margin: 0;
+}
+
+/* Parágrafo */
+.box4 p {
+    text-align: justify;
+    font-size: 1rem;
+    color: black;
+    background-color: #ececec;
+    margin: 0;
+    height: auto;
 }
 
 /*FIM DO SEGUNDO*/
@@ -298,40 +333,52 @@ header .navbar a:hover {
     justify-content: center; /* centraliza horizontalmente */
     align-items: center;     /* centraliza verticalmente */
     gap: 20px;               /* espaço entre as caixas */
-    height: 120px;           /* altura do container (igual às caixas) */
+    height: 300px;           /* igual às caixas filhas */
 }
 
 .box5, .box6 {
-  border-radius: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
 }
 
+/* Imagem */
 .box5 {
-  background: url("Images/save.jpg") no-repeat center center;
-  background-size: cover;
-  width: 600px;
-  height: 300px;
+    background: url("Images/save.jpg") no-repeat center center;
+    background-size: cover;
+    width: 600px;
+    height:350px;
 }
 
-.box6 p {
-  height: 90px;
-  text-align: justify;
-  font-size: 14px;
-  color: black;
-  background-color: #ececec;
-}
-
-.box6 h1 {
-  height: 30px;
-  text-align: center;
-  font-size: 1.5rem;
-  color: brown;
-  background-color: #ecececec;
-}
-
+/* Texto */
 .box6 {
-  background: #ececec;
-  height: 250px;
-  width: 570px;
+    background-color: #ececec; /* corrigido */
+    width: 570px;
+    height: 300px;             /* igual à box5 */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Título */
+.box6 h1 {
+    text-align: center;
+    font-size: 1.5rem;
+    color: brown;
+    background-color: #ececec; /* corrigido */
+    margin: 0;
+    height: auto;
+}
+
+/* Parágrafo */
+.box6 p {
+    text-align: justify;
+    font-size: 16px;
+    color: black;
+    background-color: #ececec;
+    margin: 0;
+    height: auto;
 }
 
 /*INICIO CSS DO MAPA*/
@@ -442,8 +489,8 @@ path:hover {
 
 /* Área do carrossel */
 .card-wrapper {
-  max-width: 1120px;
-  margin: 0 60px 35px;
+  max-width: 1220px;
+  margin: 0 80px 65px;
   padding: 20px 10px;
   overflow: hidden;
   position: relative;
