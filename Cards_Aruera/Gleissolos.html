@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solos.Gleis</title>
+    <style>
+        /* Cores Temáticas de Gleissolos (tons de cinza e água) */
+        
+        body {
+            /* Fundo remetendo à água/várzea úmida */
+            background-image : linear-gradient(to right, #D3DEDC, #3C4B50 ); /* Azul muito claro, quase branco-gelo */
+            font-family: 'Arial', sans-serif;
+            color: #3C4B50; /* Cinza-escuro/chumbo para texto */
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Container Principal (simulando a cor do solo glei) */
+        .content-container {
+            max-width: 800px;
+            width: 90%;
+            background-color: #D3DEDC; /* Cinza-claro esverdeado (solo saturado) */
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-top: 40px;
+            /* Borda remetendo à água ou umidade */
+            border-left: 5px solid #6AA6AA; 
+        }
+
+        /* Título */
+        h1 {
+            text-align: center;
+            color: #274D50; /* Verde-água profundo */
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #6AA6AA;
+            padding-bottom: 10px;
+        }
+
+        /* Imagem */
+        .gleis-dec {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            /* Borda em tom de matéria orgânica ou umidade */
+            border: 5px solid #3C4B50; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Parágrafo de Conteúdo */
+        p {
+            font-size: 1.1em;
+            text-align: justify;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #FAFAFA; /* Fundo branco para melhor leitura */
+            border-radius: 5px;
+        }
+
+        /* Destacar termos chave */
+        p strong {
+            color: #274D50; /* Cor de destaque (Verde-água profundo) */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="content-container">
+        <h1>Como funciona: Gleissolos</h1>
+        
+        <img src="/Images/glei.png" alt="Perfil de solo Gleissolo encharcado" class="gleis-dec">
+        
+        <p>
+            Os <strong>Gleissolos</strong> são solos minerais tipicamente encontrados em <strong>várzeas, planícies e depressões</strong> com drenagem restrita, onde a presença constante de água (lençol freático alto) é a principal característica. Eles se formam sob um processo chamado <strong>gleização</strong>.
+            Sua cor predominante é <strong>acinzentada ou azulada</strong> no horizonte subsuperficial (<strong>Horizonte G</strong>), resultado da redução do ferro em um ambiente anóxico (sem oxigênio) causado pelo alagamento prolongado. Essa condição de <strong>hidromorfismo</strong> limita o uso agrícola, mas os Gleissolos são importantes ecologicamente e, com manejo adequado, podem ser utilizados em áreas de arroz irrigado ou pastagens.
+        </p>
+    </div>
+</body>
+</html>
