@@ -290,11 +290,11 @@ header .navbar a:hover {
 
 
 .container {
-  width: 100%;
+  width: 100vmax;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding: 80px;
   margin-top: 170px; /* Adiciona espaço abaixo do header */
   flex-wrap: wrap;
   position: relative;
@@ -349,10 +349,10 @@ path:hover {
 
 .tooltip {
   pointer-events: none;
-  font-size: 18px;
+  font-size: 15px;
   text-align: center;
   background: white;
-  padding: 10px 15px;
+  padding: 8px 12px;
   z-index: 2;
   color: #21669e;
   border-radius: 5px;
@@ -365,11 +365,12 @@ path:hover {
 
 .tooltip:after {
   content: "";
-  top: 10px;
-  margin-left: -10px;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid white;
+  top: 7px;
+  margin-left: -5px;
+  margin-right: -2px;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid white;
 }
 
 /* Container principal */
