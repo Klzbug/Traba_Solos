@@ -1,0 +1,27 @@
+/**
+ * Configuração centralizada do frontend
+ * Define a URL base da API e outras configurações
+ */
+
+// Detectar o ambiente (desenvolvimento ou produção)
+const isDevelopment = window.location.hostname === 'localhost' || 
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('localhost');
+
+// URL da API
+const API_BASE_URL = isDevelopment 
+    ? 'http://localhost:8000'
+    : `${window.location.protocol}//${window.location.host}`;
+
+// Configurações gerais
+const CONFIG = {
+    API_BASE_URL: API_BASE_URL,
+    isDevelopment: isDevelopment,
+    timeout: 5000, // Timeout em ms
+    retries: 3,    // Número de tentativas
+};
+
+// Log de configuração (apenas em desenvolvimento)
+if (CONFIG.isDevelopment) {
+    console.log('🔧 Configuração do Frontend:', CONFIG);
+}
