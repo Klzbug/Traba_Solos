@@ -1,7 +1,10 @@
 // =========================
 // CONFIGURAÇÃO DA API
 // =========================
-const API_BASE_URL = "http://localhost:8000"; // Ajuste se sua API estiver online
+// Detectar automaticamente a URL da API baseado no ambiente
+const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+    ? 'http://localhost:8000'
+    : window.location.origin; // Usar a mesma origem em produção
 
 
 
@@ -56,8 +59,9 @@ async function carregarOpinioes() {
 
         container.innerHTML = `
             <p style="color: red;">
-                Erro ao conectar com a API. 
-                Certifique-se de que o servidor FastAPI está rodando em ${API_BASE_URL}.
+                <strong>Erro ao conectar com a API.</strong><br>
+                Certifique-se de que o servidor FastAPI está rodando em <code>${API_BASE_URL}</code>.<br>
+                Detalhes: ${error.message}
             </p>
         `;
     }
@@ -95,8 +99,8 @@ async function enviarOpiniao(event) {
         pessoaId = pessoa.id;
 
     } catch (error) {
-        alert("Erro ao registrar a pessoa. Verifique o console.");
         console.error("Erro ao registrar a pessoa:", error);
+        alert(`Erro ao registrar a pessoa: ${error.message}`);
         return;
     }
 

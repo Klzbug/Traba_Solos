@@ -9,6 +9,13 @@ router = APIRouter(prefix="/pessoas", tags=["Pessoas"])
 
 @router.post("/", response_model=schemas.Pessoa)
 def criar_pessoa(pessoa: schemas.PessoaCreate, db: Session = Depends(get_db)):
+    # Verificar se a pessoa já existe pelo e-mail
+    pessoa_existente = db.query(models.Pessoa).filter(models.Pessoa.email == pessoa.email).first()
+    
+    if pessoa_existente:
+        return pessoa_existente
+    
+    # Se não existir, criar uma nova pessoa
     nova = models.Pessoa(**pessoa.dict())
     db.add(nova)
     db.commit()
