@@ -11,7 +11,7 @@ const isDevelopment = window.location.hostname === 'localhost' ||
 // URL da API
 // Em desenvolvimento: usa o proxy em /api
 // Em produção: usa a mesma origem
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = 'http://localhost:8000/opinioes' ; // Alterado para apontar diretamente para a API FastAPI
 
 // Configurações gerais
 const CONFIG = {
