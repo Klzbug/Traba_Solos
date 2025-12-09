@@ -1,64 +1,88 @@
-const API_BASE_URL = "https://8000-izm0bwtgod57ig3rhfd7a-e5f20da8.manus-asia.computer"; // Endereço da API FastAPI
+// =========================
+// CONFIGURAÇÃO DA API
+// =========================
+const API_BASE_URL = "http://localhost:8000"; // Ajuste se sua API estiver online
 
-document.addEventListener('DOMContentLoaded', () => {
+
+
+// =========================
+// INICIALIZAÇÃO DA PÁGINA
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
     carregarOpinioes();
-    document.getElementById('opiniao-form').addEventListener('submit', enviarOpiniao);
+    document
+        .getElementById("opiniao-form")
+        .addEventListener("submit", enviarOpiniao);
 });
 
+
+
+// =========================
+// CARREGAR OPINIÕES
+// =========================
 async function carregarOpinioes() {
-    const container = document.getElementById('opinioes-container');
-    container.innerHTML = 'Carregando opiniões...';
+    const container = document.getElementById("opinioes-container");
+    container.innerHTML = "Carregando opiniões...";
 
     try {
         const response = await fetch(`${API_BASE_URL}/opinioes/`);
+
         if (!response.ok) {
             throw new Error(`Erro ao carregar opiniões: ${response.statusText}`);
         }
+
         const opinioes = await response.json();
-        
-        container.innerHTML = '';
+        container.innerHTML = "";
+
         if (opinioes.length === 0) {
-            container.innerHTML = '<p>Nenhuma opinião encontrada.</p>';
+            container.innerHTML = "<p>Nenhuma opinião encontrada.</p>";
             return;
         }
 
         opinioes.forEach(opiniao => {
-            const card = document.createElement('div');
-            card.className = 'opiniao-card';
-            
-            // A API agora retorna os dados do autor (pessoa) aninhados. 
-            // Exibindo o nome e email do autor.
-            
+            const card = document.createElement("div");
+            card.className = "opiniao-card";
+
             card.innerHTML = `
                 <h4>Opinião de ${opiniao.autor.nome} (${opiniao.autor.email})</h4>
                 <p>${opiniao.texto}</p>
             `;
+
             container.appendChild(card);
         });
 
     } catch (error) {
-        console.error('Erro ao carregar opiniões:', error);
-        container.innerHTML = `<p style="color: red;">Erro ao conectar com a API. Certifique-se de que o servidor FastAPI está rodando em ${API_BASE_URL}.</p>`;
+        console.error("Erro ao carregar opiniões:", error);
+
+        container.innerHTML = `
+            <p style="color: red;">
+                Erro ao conectar com a API. 
+                Certifique-se de que o servidor FastAPI está rodando em ${API_BASE_URL}.
+            </p>
+        `;
     }
 }
 
+
+
+// =========================
+// ENVIAR OPINIÃO
+// =========================
 async function enviarOpiniao(event) {
     event.preventDefault();
 
-    const nome = document.getElementById('nome').value;
-    const email = document.getElementById('email').value;
-    const texto = document.getElementById('texto').value;
+    const nome  = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const texto = document.getElementById("texto").value;
 
-    // Passo 1: Criar a Pessoa (se não existir)
     let pessoaId;
+
+    // ---------- Criar pessoa ----------
     try {
-        // Tenta encontrar a pessoa pelo email (simulação, pois a API não tem endpoint de busca por email)
-        // Para simplificar, vamos sempre criar uma nova pessoa.
-        
         const pessoaResponse = await fetch(`${API_BASE_URL}/pessoas/`, {
-            method: 'POST',
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({ nome, email }),
         });
@@ -71,17 +95,17 @@ async function enviarOpiniao(event) {
         pessoaId = pessoa.id;
 
     } catch (error) {
-        alert('Erro ao registrar a pessoa. Verifique o console para detalhes.');
-        console.error('Erro ao registrar a pessoa:', error);
+        alert("Erro ao registrar a pessoa. Verifique o console.");
+        console.error("Erro ao registrar a pessoa:", error);
         return;
     }
 
-    // Passo 2: Enviar a Opinião
+    // ---------- Enviar opinião ----------
     try {
         const opiniaoResponse = await fetch(`${API_BASE_URL}/opinioes/${pessoaId}`, {
-            method: 'POST',
+            method: "POST",
             headers: {
-                'Content-Type': 'application/json',
+                "Content-Type": "application/json",
             },
             body: JSON.stringify({ texto }),
         });
@@ -90,12 +114,13 @@ async function enviarOpiniao(event) {
             throw new Error(`Erro ao enviar opinião: ${opiniaoResponse.statusText}`);
         }
 
-        alert('Opinião enviada com sucesso!');
-        document.getElementById('opiniao-form').reset();
-        carregarOpinioes(); // Recarrega a lista de opiniões
+        alert("Opinião enviada com sucesso!");
+        document.getElementById("opiniao-form").reset();
+
+        carregarOpinioes(); // Atualiza lista
 
     } catch (error) {
-        alert('Erro ao enviar a opinião. Verifique o console para detalhes.');
-        console.error('Erro ao enviar a opinião:', error);
+        alert("Erro ao enviar a opinião. Verifique o console.");
+        console.error("Erro ao enviar a opinião:", error);
     }
 }
