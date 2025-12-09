@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 # ---------- Opiniões ----------
 
@@ -11,16 +11,14 @@ class OpiniaoCreate(OpiniaoBase):
 class PessoaOpiniao(BaseModel):
     nome: str
     email: str
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 class Opiniao(OpiniaoBase):
     id: int
     pessoa_id: int
     autor: PessoaOpiniao
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)
 
 
 # ---------- Pessoas ----------
@@ -36,5 +34,4 @@ class Pessoa(PessoaBase):
     id: int
     opinioes: list[Opiniao] = []
 
-    class Config:
-        orm_mode = True
+    model_config = ConfigDict(from_attributes=True)

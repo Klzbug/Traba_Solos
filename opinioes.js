@@ -1,10 +1,8 @@
 // =========================
 // CONFIGURAÇÃO DA API
 // =========================
-// Detectar automaticamente a URL da API baseado no ambiente
-const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:8000'
-    : window.location.origin; // Usar a mesma origem em produção
+// URL da API - sempre usar localhost:8000 em desenvolvimento
+const API_BASE_URL = 'http://localhost:8000';
 
 
 
