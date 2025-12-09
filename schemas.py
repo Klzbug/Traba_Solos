@@ -8,9 +8,16 @@ class OpiniaoBase(BaseModel):
 class OpiniaoCreate(OpiniaoBase):
     pass
 
+class PessoaOpiniao(BaseModel):
+    nome: str
+    email: str
+    class Config:
+        orm_mode = True
+
 class Opiniao(OpiniaoBase):
     id: int
     pessoa_id: int
+    autor: PessoaOpiniao
 
     class Config:
         orm_mode = True
