@@ -1,0 +1,25 @@
+{
+  "name": "traba-solos-server",
+  "version": "1.0.0",
+  "description": "Servidor proxy para Traba Solos - Informações sobre Solos Brasileiros",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "solos",
+    "brasil",
+    "educação"
+  ],
+  "author": "Traba Solos Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "http-proxy-middleware": "^2.0.6"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

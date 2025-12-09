@@ -32,65 +32,85 @@ Traba_Solos/
 │   ├── Cards_Aruera/          # Componentes de cards
 │   └── Livros/                # Recursos adicionais
 │
+├── server.js                  # Servidor proxy (Node.js/Express)
+├── package.json               # Dependências do Node.js
 └── README.md                  # Este arquivo
 ```
 
 ## 🚀 Como Executar o Projeto
 
-### Pré-requisitos
+### Opção 1: Usando o Servidor Proxy (Recomendado) ⭐
 
+Esta é a forma mais fácil e recomendada para desenvolvimento. O servidor proxy serve o frontend e redireciona as requisições da API para o backend.
+
+#### Pré-requisitos
+
+- Node.js 14+ e npm
 - Python 3.8+
 - pip (gerenciador de pacotes Python)
-- Um navegador web moderno
 
-### 1. Instalar Dependências
+#### Passos
+
+1. **Instale as dependências do Node.js:**
+   ```bash
+   npm install
+   ```
+
+2. **Instale as dependências do Python (backend):**
+   ```bash
+   cd backend
+   pip install fastapi sqlalchemy uvicorn python-dotenv
+   cd ..
+   ```
+
+3. **Inicie o backend (em um terminal separado):**
+   ```bash
+   cd backend
+   uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+   ```
+
+4. **Inicie o servidor proxy (em outro terminal):**
+   ```bash
+   npm start
+   ```
+
+5. **Acesse a aplicação:**
+   - Página principal: **http://localhost:3000**
+   - Página de opiniões: **http://localhost:3000/opinioes**
+   - API (via proxy): **http://localhost:3000/api**
+   - Documentação da API: **http://localhost:3000/api/docs**
+
+### Opção 2: Execução Separada (Desenvolvimento Avançado)
+
+Se você preferir executar o frontend e backend separadamente:
+
+#### Terminal 1 - Backend
 
 ```bash
-# Navegar para o diretório do backend
 cd backend
-
-# Instalar as dependências Python
 pip install fastapi sqlalchemy uvicorn python-dotenv
-
-# (Opcional) Criar um ambiente virtual
-python -m venv venv
-source venv/bin/activate  # No Windows: venv\Scripts\activate
-pip install fastapi sqlalchemy uvicorn python-dotenv
-```
-
-### 2. Executar o Backend (API)
-
-```bash
-# A partir do diretório backend/
-python main.py
-
-# Ou usando uvicorn diretamente:
 uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
 A API estará disponível em: **http://localhost:8000**
 
-Documentação interativa (Swagger UI): **http://localhost:8000/docs**
-
-### 3. Abrir o Frontend
+#### Terminal 2 - Frontend
 
 ```bash
-# Abrir o arquivo Index.html em um navegador
-# Opção 1: Abrir diretamente
-open frontend/Index.html
-
-# Opção 2: Usar um servidor web local (recomendado)
 cd frontend
 python -m http.server 3000
-# Acesse: http://localhost:3000/Index.html
 ```
+
+O frontend estará disponível em: **http://localhost:3000/Index.html**
+
+**Nota:** Nesta configuração, você precisará ajustar o `frontend/config.js` para apontar para `http://localhost:8000` em vez de `/api`.
 
 ## 🔌 API Endpoints
 
 ### Pessoas
 
-- **GET** `/pessoas/` - Listar todas as pessoas
-- **POST** `/pessoas/` - Criar uma nova pessoa (ou retornar existente se e-mail duplicado)
+- **GET** `/api/pessoas/` - Listar todas as pessoas
+- **POST** `/api/pessoas/` - Criar uma nova pessoa (ou retornar existente se e-mail duplicado)
   ```json
   {
     "nome": "João Silva",
@@ -100,8 +120,8 @@ python -m http.server 3000
 
 ### Opiniões
 
-- **GET** `/opinioes/` - Listar todas as opiniões
-- **POST** `/opinioes/{pessoa_id}` - Criar uma nova opinião para uma pessoa
+- **GET** `/api/opinioes/` - Listar todas as opiniões
+- **POST** `/api/opinioes/{pessoa_id}` - Criar uma nova opinião para uma pessoa
   ```json
   {
     "texto": "Excelente informação sobre solos!"
@@ -110,7 +130,7 @@ python -m http.server 3000
 
 ### Health Check
 
-- **GET** `/health` - Verificar se a API está funcionando
+- **GET** `/api/health` - Verificar se a API está funcionando
 
 ## 🛠️ Configuração
 
@@ -132,11 +152,26 @@ O arquivo `frontend/config.js` contém as configurações do frontend:
 
 ```javascript
 const CONFIG = {
-    API_BASE_URL: 'http://localhost:8000',
+    API_BASE_URL: '/api',      // Proxy para o backend
     isDevelopment: true,
     timeout: 5000,
     retries: 3,
 };
+```
+
+### Servidor Proxy (server.js)
+
+O arquivo `server.js` configura o servidor proxy:
+
+```javascript
+const PORT = process.env.PORT || 3000;
+const BACKEND_URL = process.env.BACKEND_URL || 'http://localhost:8000';
+```
+
+Você pode alterar a porta e a URL do backend usando variáveis de ambiente:
+
+```bash
+PORT=5000 BACKEND_URL=http://localhost:9000 npm start
 ```
 
 ## 📊 Banco de Dados
@@ -169,37 +204,65 @@ O projeto utiliza **SQLite** como banco de dados. As tabelas são criadas automa
 ### Backend
 - 🔐 Validação de dados com Pydantic
 - 🗄️ ORM com SQLAlchemy
-- 🔄 Lógica de Upsert para pessoas (evita duplicação de e-mail)
+- 🔄 Lógica de Upsert para pessoas (evita duplicação)
 - 📝 Documentação automática com Swagger UI
 - 🚀 CORS habilitado para desenvolvimento
 
+### Servidor Proxy
+- 🔀 Redirecionamento de requisições para o backend
+- 📁 Serve arquivos estáticos do frontend
+- 🔗 Resolução de problemas de CORS
+- 📊 Logging de requisições
+
 ## 🐛 Troubleshooting
 
-### Erro: "Failed to fetch"
+### Erro: "Cannot find module 'express'"
 
-**Causa:** O servidor FastAPI não está rodando ou não está acessível.
-
-**Solução:**
-1. Certifique-se de que o servidor está rodando em `http://localhost:8000`
-2. Verifique se a porta 8000 não está sendo usada por outro processo
-3. Verifique o console do navegador (F12) para mais detalhes
-
-### Erro: "ModuleNotFoundError: No module named 'fastapi'"
-
-**Causa:** As dependências não foram instaladas.
+**Causa:** As dependências do Node.js não foram instaladas.
 
 **Solução:**
 ```bash
+npm install
+```
+
+### Erro: "ModuleNotFoundError: No module named 'fastapi'"
+
+**Causa:** As dependências do Python não foram instaladas.
+
+**Solução:**
+```bash
+cd backend
 pip install fastapi sqlalchemy uvicorn python-dotenv
 ```
 
-### Erro: "CORS policy"
+### Erro: "Connection refused" ao conectar com a API
 
-**Causa:** O frontend está tentando acessar a API de um domínio diferente.
+**Causa:** O servidor backend não está rodando.
 
 **Solução:**
-1. Certifique-se de que a URL da API está correta em `frontend/config.js`
-2. Verifique se o CORS está habilitado no `backend/main.py`
+1. Certifique-se de que o backend está rodando em `http://localhost:8000`
+2. Execute:
+   ```bash
+   cd backend
+   uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+   ```
+
+### Erro: "HTTP 404" ao acessar a API
+
+**Causa:** O servidor proxy não consegue conectar com o backend.
+
+**Solução:**
+1. Verifique se o backend está rodando
+2. Verifique a URL do backend em `server.js` ou na variável de ambiente `BACKEND_URL`
+3. Reinicie o servidor proxy
+
+### Erro: "CORS policy" no console do navegador
+
+**Causa:** O CORS não está configurado corretamente.
+
+**Solução:** Este erro não deve ocorrer ao usar o servidor proxy, pois ele redireciona as requisições para o mesmo domínio. Se ocorrer, verifique:
+1. Se o servidor proxy está rodando
+2. Se o frontend está acessando a API via `/api` em vez de uma URL externa
 
 ## 📚 Tecnologias Utilizadas
 
@@ -215,6 +278,11 @@ pip install fastapi sqlalchemy uvicorn python-dotenv
 - **CSS3** - Estilização
 - **JavaScript (Vanilla)** - Interatividade
 - **Fetch API** - Comunicação com a API
+
+### Servidor Proxy
+- **Node.js** - Runtime JavaScript
+- **Express** - Framework web
+- **http-proxy-middleware** - Proxy reverso
 
 ## 🤝 Contribuindo
 
