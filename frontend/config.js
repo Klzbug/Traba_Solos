@@ -9,9 +9,9 @@ const isDevelopment = window.location.hostname === 'localhost' ||
                       window.location.hostname.includes('localhost');
 
 // URL da API
-const API_BASE_URL = isDevelopment 
-    ? 'http://localhost:8000'
-    : `${window.location.protocol}//${window.location.host}`;
+// Em desenvolvimento: usa o proxy em /api
+// Em produção: usa a mesma origem
+const API_BASE_URL = '/api';
 
 // Configurações gerais
 const CONFIG = {
@@ -24,4 +24,6 @@ const CONFIG = {
 // Log de configuração (apenas em desenvolvimento)
 if (CONFIG.isDevelopment) {
     console.log('🔧 Configuração do Frontend:', CONFIG);
+    console.log('🌐 Origem:', window.location.origin);
+    console.log('📍 API Base URL:', API_BASE_URL);
 }
