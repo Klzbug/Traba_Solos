@@ -16,7 +16,7 @@ class PessoaOpiniao(BaseModel):
 class Opiniao(OpiniaoBase):
     id: int
     pessoa_id: int
-    autor: PessoaOpiniao
+    autor: PessoaOpiniao | None = None # O relacionamento pode não ser carregado em todos os contextos
 
     model_config = ConfigDict(from_attributes=True)
 
