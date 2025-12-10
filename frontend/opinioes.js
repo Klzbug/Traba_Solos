@@ -83,10 +83,10 @@ async function carregarOpinioes() {
             <div style="padding: 20px; background-color: #fee; border: 1px solid #fcc; border-radius: 5px; color: #c33;">
                 <strong>⚠️ Erro ao conectar com a API</strong><br>
                 <p>Não foi possível carregar as opiniões.</p>
-                <p><strong>URL esperada:</strong> <code>${CONFIG.API_BASE_URL}/opinioes/</code></p>
+                <p><strong>URL esperada:</strong> <code>${CONFIG.API_BASE_URL}/opinioes</code></p>
                 <p><strong>Erro:</strong> ${escapeHtml(error.message)}</p>
                 <p style="font-size: 0.9em; margin-top: 10px;">
-                    Certifique-se de que o servidor FastAPI está rodando em <code>${CONFIG.API_BASE_URL}</code>
+                    Certifique-se de que o servidor FastAPI está rodando em <code>http://localhost:8000</code>
                 </p>
                 <button onclick="carregarOpinioes()" style="margin-top: 10px; padding: 8px 16px; background-color: #0066cc; color: white; border: none; border-radius: 3px; cursor: pointer;">
                     🔄 Tentar Novamente
