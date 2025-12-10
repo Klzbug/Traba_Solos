@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Modal_SE.js carregado');
-
   const modal_SE = document.getElementById('janela-SE');
   const fechar = document.getElementById('fechar');
-
   window.abrirModalSE = function() {
     console.log('abrirModalSE chamada');
     modal_SE.classList.add('abrir');

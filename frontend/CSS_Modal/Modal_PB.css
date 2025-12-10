@@ -10,16 +10,14 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 9999;
 }
-
 .janela-PB.abrir10 {
   display: flex;
 }
-
 .modal_PB {
   position: relative;
-  width: 90%;              /* ← aumentei de 80% para 90% */
-  max-width: 1200px;       /* ← limite maior (antes era 900px) */
-  height: 70vh;            /* ← define uma altura de 70% da tela */
+  width: 90%;              
+  max-width: 1200px;       
+  height: 70vh;            
   background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   overflow: hidden;
@@ -33,7 +31,6 @@
   justify-content: center;
   max-width: 1200px;
 }
-
 .modal-content-wrapper {
   display: flex;
   align-items: stretch;
@@ -41,29 +38,24 @@
   gap: 20px;
   height: 100%;
 }
-
 .modal-image-left {
   flex: 1.2;
 }
-
 .modal-image-left img {
   width: 100%;
   height: 100%;
   border-radius: 15px;
   object-fit: cover;
 }
-
 .modal-info-right {
   flex: 1;
   color: #333;
 }
-
 .modal-info-right h1 {
   margin-bottom: 1rem;
   color: brown;
   font-size: 1.8rem;
 }
-
 .fechar10 {
   position: absolute;
   top: 15px;
@@ -77,11 +69,9 @@
   font-size: 16px;
   transition: 0.3s;
 }
-
 .fechar10:hover {
   background: rgb(102, 26, 26);
 }
-
 @media (max-width: 768px) {
   .modal-content-wrapper {
     flex-direction: column;

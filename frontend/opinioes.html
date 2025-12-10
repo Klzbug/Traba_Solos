@@ -6,46 +6,35 @@
     <title>Opiniões • Traba Solos</title>
     <link rel="stylesheet" href="opinioes.css">
 </head>
-
 <body>
     <header class="header">
         <div class="header-content">
             <h1>Opiniões sobre Solos</h1>
-
             <nav>
                 <a href="Index.html" class="nav-link">Página Inicial</a>
             </nav>
         </div>
     </header>
-
     <main class="container">
-        
-        <!-- Formulário -->
         <section id="form-opiniao" class="card">
             <h2 class="section-title">Deixe sua Opinião</h2>
-
             <form id="opiniao-form" class="form">
                 <div class="form-group">
                     <label for="nome">Seu Nome</label>
                     <input type="text" id="nome" required placeholder="Digite seu nome">
                 </div>
-
                 <div class="form-group">
                     <label for="email">Seu Email</label>
                     <input type="email" id="email" required placeholder="exemplo@email.com">
                 </div>
-
                 <div class="form-group">
                     <label for="texto">Sua Opinião</label>
                     <textarea id="texto" rows="4" required placeholder="Escreva aqui..."></textarea>
                 </div>
-
                 <button type="submit" class="btn">Enviar Opinião</button>
                 <a href="quiz.html"><button type="button" class="btn1">Fazer quiz</button></a>
             </form>
         </section>
-
-        <!-- Lista de opiniões -->
         <section id="lista-opinioes" class="card">
             <h2 class="section-title">Opiniões Recentes</h2>
             <div id="opinioes-container">
@@ -53,8 +42,6 @@
             </div>
         </section>
     </main>
-
-
     <script src="config.js"></script>
     <script src="opinioes.js"></script>
 </body>

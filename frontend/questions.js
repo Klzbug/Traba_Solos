@@ -1,5 +1,3 @@
-// Array of questions grouped by category (25 questions each)
-
 const questions = [
     {
       category: "programming",
@@ -16,7 +14,7 @@ const questions = [
         },
         {
           question: "How do you write comment in Python?",
-          options: ["// This is a comment", "# This is a comment", "/* This is a comment */", "<!-- This is a comment -->"],
+          options: ["
           correctAnswer: 1,
         },
         {
@@ -106,7 +104,7 @@ const questions = [
         },
         {
           question: "How do you write comment in CSS?",
-          options: ["// This is a comment", "/* This is a comment */", "# This is a comment", "<!-- This is a comment -->"],
+          options: ["
           correctAnswer: 1,
         },
         {
@@ -131,7 +129,6 @@ const questions = [
         },
       ],
     },
-  
     {
       category: "geography",
       questions: [
@@ -262,7 +259,6 @@ const questions = [
         },
       ],
     },
-  
     {
       category: "mathematics",
       questions: [
@@ -393,7 +389,6 @@ const questions = [
         },
       ],
     },
-  
     {
       category: "entertainment",
       questions: [
@@ -525,4 +520,3 @@ const questions = [
       ],
     },
   ];
-  

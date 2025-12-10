@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nutrição Mineral de Plantas</title>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto:wght@300;500&display=swap');
-
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -15,7 +13,6 @@
             background: linear-gradient(to bottom, #fdf6e3, #f0e1c6);
             overflow-x: hidden;
         }
-
         h1 {
             text-align: center;
             color: #6b4226;
@@ -25,12 +22,10 @@
             text-shadow: 2px 2px 5px rgba(0,0,0,0.1);
             animation: slideIn 1.2s ease;
         }
-
         #livro-fisica {
             text-align: center;
             margin: 30px 0;
         }
-
         #livro-fisica img {
             max-width: 80%;
             border: 3px solid #d2b48c;
@@ -38,11 +33,9 @@
             border-radius: 10px;
             transition: transform 0.3s ease;
         }
-
         #livro-fisica img:hover {
             transform: scale(1.05);
         }
-
         .texto {
             background-color: #ffffffd0;
             padding: 60px;
@@ -57,16 +50,13 @@
             z-index: 2;
             animation: fadeIn 1.5s ease;
         }
-
         .texto p {
             margin-bottom: 20px;
             font-family: 'Merriweather', serif;
         }
-
         b {
             color: #6b4226;
         }
-
         /* Folhas decorativas flutuantes */
         .leaf {
             position: absolute;
@@ -74,52 +64,43 @@
             opacity: 0.4;
             animation: floatLeaf 12s linear infinite;
         }
-
         .leaf:nth-child(1) {
             top: 10%;
             left: -80px;
             animation-delay: 0s;
         }
-
         .leaf:nth-child(2) {
             top: 30%;
             left: -100px;
             animation-delay: 4s;
         }
-
         .leaf:nth-child(3) {
             top: 60%;
             left: -120px;
             animation-delay: 8s;
         }
-
         @keyframes floatLeaf {
             0% { transform: translateX(0) rotate(0deg); }
             50% { transform: translateX(120vw) rotate(180deg); }
             100% { transform: translateX(0) rotate(360deg); }
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes slideIn {
             from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @media (max-width: 768px) {
             h1 {
                 font-size: 2rem;
                 margin-top: 20px;
             }
-
             .texto {
                 padding: 30px;
                 font-size: 1rem;
             }
-
             #livro-fisica img {
                 max-width: 95%;
             }
@@ -130,26 +111,20 @@
     <img src="https://cdn-icons-png.flaticon.com/512/2907/2907430.png" class="leaf" alt="Leaf">
     <img src="https://cdn-icons-png.flaticon.com/512/2907/2907430.png" class="leaf" alt="Leaf">
     <img src="https://cdn-icons-png.flaticon.com/512/2907/2907430.png" class="leaf" alt="Leaf">
-
     <h1>Nutrição Mineral de Plantas</h1>
-
     <div id="livro-fisica">
         <img src="/Images/Livro_Nutricao.jpg" alt="Livro de Nutrição de Plantas">
     </div>
-
     <div class="texto">
         <p>
             A primeira edição deste livro foi publicada em 2006, um marco importante para a área de <b>Nutrição de Plantas</b> no Brasil. Esse ano pode ser visto como um verdadeiro <b>"Ano Notável"</b> para a disciplina, pois coincidiu com o lançamento de outras obras fundamentais, como o <b>"Manual de Nutrição Mineral de Plantas"</b>, do Professor E. Malavolta, e a tradução para o português do clássico <b>“Nutrição Mineral de Plantas: Princípios e Perspectivas”</b>, de Epstein & Bloom.
         </p>
-
         <p>
             Desde então, a área passou por uma transformação significativa. Na última década, observou-se um avanço expressivo tanto no volume de informações quanto nas metodologias utilizadas nas pesquisas em nutrição vegetal...
         </p>
-
         <p>
             O resultado é um livro <b>atual</b>, alinhado com os mais recentes <b>avanços científicos</b>, que pode servir como <b>referência essencial</b> para <b>estudantes</b>, <b>professores</b> e <b>pesquisadores</b> da <b>Nutrição Mineral de Plantas</b>.
         </p>
-
         <p><b>Manlio Silvestre Fernandes</b><br>Departamento de Solos – UFRRJ</p>
     </div>
 </body>

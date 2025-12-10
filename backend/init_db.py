@@ -1,23 +1,15 @@
 from sqlalchemy.orm import Session
 from database import SessionLocal, engine, Base
 from models import Pessoa, Opiniao
-
-# Cria as tabelas no banco de dados
 Base.metadata.create_all(bind=engine)
-
 def init_db():
     db: Session = SessionLocal()
-    
-    # Verifica se já existe uma pessoa
     if db.query(Pessoa).count() == 0:
-        # Cria uma pessoa de exemplo
         pessoa_exemplo = Pessoa(nome="Usuário de Teste", email="teste@exemplo.com")
         db.add(pessoa_exemplo)
         db.commit()
         db.refresh(pessoa_exemplo)
         print(f"Pessoa de exemplo criada com ID: {pessoa_exemplo.id}")
-        
-        # Cria uma opinião de exemplo
         opiniao_exemplo = Opiniao(texto="Esta é uma opinião de teste inicial.", pessoa_id=pessoa_exemplo.id)
         db.add(opiniao_exemplo)
         db.commit()
@@ -25,8 +17,6 @@ def init_db():
         print(f"Opinião de exemplo criada com ID: {opiniao_exemplo.id}")
     else:
         print("O banco de dados já contém dados.")
-        
     db.close()
-
 if __name__ == "__main__":
     init_db()

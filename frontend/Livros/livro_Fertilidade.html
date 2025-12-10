@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fertilidade do Solo</title>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;600;800&display=swap');
-
         body {
             font-family: 'Roboto Serif', serif;
             margin: 0;
@@ -15,7 +13,6 @@
             color: #3e2f1c;
             overflow-x: hidden;
         }
-
         h1 {
             text-align: center;
             color: #4e342e;
@@ -25,7 +22,6 @@
             position: relative;
             animation: fadeInDown 1s ease;
         }
-
         h1::after {
             content: "";
             display: block;
@@ -35,13 +31,11 @@
             margin: 10px auto 0;
             border-radius: 4px;
         }
-
         #livro-fisica {
             text-align: center;
             margin: 30px 0;
             animation: fadeIn 1.5s ease;
         }
-
         #livro-fisica img {
             max-width: 300px;
             height: auto;
@@ -50,12 +44,10 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.2);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-
         #livro-fisica img:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 25px rgba(0,0,0,0.25);
         }
-
         .texto {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 60px;
@@ -68,18 +60,15 @@
             backdrop-filter: blur(8px);
             animation: fadeInUp 1.5s ease;
         }
-
         .texto p {
             margin-bottom: 20px;
         }
-
         b {
             color: #6d4c41;
             background: #e0d0b8;
             padding: 2px 6px;
             border-radius: 4px;
         }
-
         /* Ícones flutuantes decorativos */
         .folha {
             position: fixed;
@@ -90,44 +79,36 @@
             user-select: none;
             pointer-events: none;
         }
-
         .folha:nth-child(1) { left: 10%; animation-delay: 0s; }
         .folha:nth-child(2) { left: 30%; animation-delay: 3s; }
         .folha:nth-child(3) { left: 50%; animation-delay: 6s; }
         .folha:nth-child(4) { left: 70%; animation-delay: 1.5s; }
         .folha:nth-child(5) { left: 90%; animation-delay: 4.5s; }
-
         @keyframes cair {
             0% { transform: translateY(-50px) rotate(0deg); opacity: 0.2; }
             50% { opacity: 0.3; }
             100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-40px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @media (max-width: 768px) {
             .texto {
                 padding: 30px;
                 font-size: 1rem;
             }
-
             h1 {
                 font-size: 2.2rem;
             }
-
             #livro-fisica img {
                 max-width: 90%;
             }
@@ -140,63 +121,49 @@
     <div class="folha">🍂</div>
     <div class="folha">🌱</div>
     <div class="folha">🍁</div>
-
     <h1>
         Fertilidade do Solo
     </h1>
     <div id="livro-fisica">
         <img src="/Images/Livro_Fertilidade.jpg" alt="Livro Fertilidade do Solo">
     </div>
-
     <div class="texto">
         <p>
             Esta obra representa um divisor de águas no ensino e na aplicação prática dos conceitos de <b>fertilidade do solo</b> dentro do contexto da agricultura brasileira.
         </p>
-
         <p>
             Apesar de o Brasil ocupar posição de destaque em pesquisas voltadas ao manejo da fertilidade em solos tropicais e ter desenvolvido tecnologias avançadas nesse campo — com ampla produção científica assinada por autores nacionais —, o conhecimento disponível até então era, na maioria das vezes, apresentado de maneira <b>fragmentada</b>. Isso exigia que estudantes de graduação e pós-graduação, bem como técnicos atuantes na área, recorressem a múltiplas fontes para obter uma visão mais completa e aprofundada sobre o tema.
         </p>
-
         <p>
             O grande mérito deste livro, <b>Fertilidade do Solo</b>, é justamente reunir, em uma única publicação, um vasto acervo de informações construídas ao longo das últimas décadas. A obra aborda desde os <b>conceitos fundamentais</b>, passando pelas <b>técnicas de diagnóstico</b>, <b>interpretação de resultados laboratoriais</b>, até chegar aos <b>critérios de recomendação de corretivos e fertilizantes</b> para as mais variadas condições de solo, clima e culturas agrícolas brasileiras.
         </p>
-
         <p>
             Organizado em <b>18 capítulos</b>, o livro conta com a colaboração de professores e pesquisadores amplamente reconhecidos no país, e soma um total de <b>1017 páginas</b>.
         </p>
-
         <p>
             O <b>capítulo I</b> apresenta uma análise das inter-relações entre a fertilidade do solo e a produtividade agrícola, incluindo uma retrospectiva histórica global e os principais marcos do desenvolvimento dessa área no Brasil.
         </p>
-
         <p>
             Os <b>capítulos II a IV</b> abordam os <b>fatores de crescimento das plantas</b>, os <b>elementos essenciais à nutrição vegetal</b> e a <b>relação solo-planta</b>, conceitos fundamentais para o entendimento da fertilidade em sentido amplo.
         </p>
-
         <p>
             Nos <b>capítulos V a XI</b>, são discutidos temas aplicados como <b>acidez do solo</b>, <b>matéria orgânica</b>, <b>macronutrientes (nitrogênio, fósforo, potássio, enxofre)</b> e <b>micronutrientes</b> — sempre com ênfase na fixação dos conceitos e no uso adequado de insumos.
         </p>
-
         <p>
             Os <b>capítulos XII a XIV</b> tratam da <b>produção e propriedades dos fertilizantes</b>, da <b>avaliação da fertilidade do solo</b> e das <b>recomendações de adubação</b>, incluindo estratégias sobre métodos de aplicação, local e época.
         </p>
-
         <p>
             Os <b>capítulos XV a XVII</b> exploram o manejo da fertilidade em <b>situações específicas</b>, como o <b>sistema plantio direto</b>, os <b>solos afetados por sais</b> e as <b>áreas degradadas</b>, reconhecendo que tais contextos exigem abordagens diferenciadas.
         </p>
-
         <p>
             Por fim, o <b>capítulo XVIII</b> discute a relação entre fertilidade e <b>sustentabilidade na agricultura</b>, com foco especial nos <b>solos tropicais</b>, que são naturalmente pobres em nutrientes.
         </p>
-
         <p>
             O conteúdo desta publicação certamente contribuirá de forma significativa para consolidar o papel do Brasil como líder global na produção de <b>alimentos</b>, <b>energia renovável</b> e outros produtos agropecuários — promovendo uma agricultura mais <b>produtiva</b>, <b>econômica</b>, <b>ambientalmente sustentável</b> e <b>socialmente responsável</b>.
         </p>
-
         <p>
             Vale destacar o esforço dedicado pelos autores de cada capítulo e, especialmente, o trabalho de <b>coordenação</b> e <b>edição</b> conduzido pelo Professor <b>Roberto Ferreira de Novais</b>, da Universidade Federal de Viçosa. Com <b>dedicação</b>, <b>espírito crítico</b> e grande <b>comprometimento</b>, sua liderança foi essencial para a conclusão desta obra de referência.
         </p>
-
         <p>
             <b>Alfredo Scheid Lopes</b><br>
             Engenheiro-Agrônomo, MS, PhD<br>

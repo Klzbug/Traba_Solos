@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Física dos Solos</title>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@400;600;800&display=swap');
-
         body {
             font-family: 'Roboto Serif', serif;
             margin: 0;
@@ -15,7 +13,6 @@
             color: #3e2f1c;
             overflow-x: hidden;
         }
-
         h1 {
             text-align: center;
             color: #4e342e;
@@ -25,7 +22,6 @@
             position: relative;
             animation: fadeInDown 1s ease;
         }
-
         h1::after {
             content: "";
             display: block;
@@ -35,13 +31,11 @@
             margin: 10px auto 0;
             border-radius: 4px;
         }
-
         #livro-fisica {
             text-align: center;
             margin: 30px 0;
             animation: fadeIn 1.5s ease;
         }
-
         #livro-fisica img {
             max-width: 300px;
             height: auto;
@@ -50,12 +44,10 @@
             box-shadow: 0 6px 15px rgba(0,0,0,0.2);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-
         #livro-fisica img:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 25px rgba(0,0,0,0.25);
         }
-
         .texto {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 60px;
@@ -68,18 +60,15 @@
             backdrop-filter: blur(8px);
             animation: fadeInUp 1.5s ease;
         }
-
         .texto p {
             margin-bottom: 20px;
         }
-
         b {
             color: #6d4c41;
             background: #e0d0b8;
             padding: 2px 6px;
             border-radius: 4px;
         }
-
         /* Ícones flutuantes decorativos */
         .folha {
             position: fixed;
@@ -90,46 +79,38 @@
             user-select: none;
             pointer-events: none;
         }
-
         .folha:nth-child(1) { left: 10%; animation-delay: 0s; }
         .folha:nth-child(2) { left: 30%; animation-delay: 3s; }
         .folha:nth-child(3) { left: 50%; animation-delay: 6s; }
         .folha:nth-child(4) { left: 70%; animation-delay: 1.5s; }
         .folha:nth-child(5) { left: 90%; animation-delay: 4.5s; }
-
         @keyframes cair {
             0% { transform: translateY(-50px) rotate(0deg); opacity: 0.2; }
             50% { opacity: 0.3; }
             100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
         }
-
         /* Animações suaves */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-40px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
         /* Responsividade */
         @media (max-width: 768px) {
             .texto {
                 padding: 30px;
                 font-size: 1rem;
             }
-
             h1 {
                 font-size: 2.2rem;
             }
-
             #livro-fisica img {
                 max-width: 90%;
             }
@@ -142,65 +123,49 @@
     <div class="folha">🍂</div>
     <div class="folha">🌱</div>
     <div class="folha">🍁</div>
-
     <h1>
         Física dos Solos
     </h1>
-
     <div id="livro-fisica">
         <img src="/Images/Livro_FisicaSolos.jpg" alt="Livro Física dos Solos">
     </div>
-
     <div class="texto">
         <p>
             Desde 2002, foi iniciado no Brasil um importante projeto voltado à publicação de livros-texto especializados em temas relacionados à Ciência do Solo. Essas obras se tornaram referências fundamentais nos cursos de graduação e pós-graduação em Ciências Agrárias, graças à abordagem profunda e atualizada dos conteúdos.
         </p>
-
         <p>
             Um dos volumes mais relevantes trata do <b>manejo e da conservação do solo e da água</b>, refletindo a crescente preocupação com a degradação desses recursos naturais. O livro apresenta uma visão ampla sobre o tema, elaborada por profissionais altamente capacitados, comprometidos com a sustentabilidade ambiental e a produção responsável.
         </p>
-
         <p>
             Ao todo, são <b>42 capítulos</b> desenvolvidos por <b>156 especialistas</b> que conhecem profundamente a diversidade de solos e práticas agrícolas em todas as regiões do país. Apenas uma instituição científica de grande porte e capacidade organizacional poderia coordenar um trabalho dessa magnitude.
         </p>
-
         <p>
             O conteúdo dá atenção especial aos sistemas produtivos predominantes nas principais regiões agrícolas brasileiras, onde os riscos de erosão e degradação do solo são significativos. Essas áreas, por serem extensas e altamente produtivas, exigem manejo adequado e ações conservacionistas eficazes.
         </p>
-
         <p>
             O cenário da agricultura brasileira mudou radicalmente nas últimas décadas. Até os anos 1970, o país importava alimentos. Hoje, é protagonista no mercado agrícola global, o que aumenta a responsabilidade sobre a gestão dos recursos naturais. A conservação do solo e da água tornou-se essencial para garantir a continuidade dessa posição e assegurar a sustentabilidade dos sistemas de produção.
         </p>
-
         <p><i>“O solo é a Pátria, cultivá-lo é engrandecê-la.”</i></p>
-
         <p>
             Atualmente, essa frase poderia ser atualizada para refletir os desafios contemporâneos:
             <i>“O solo é a Pátria, cultivá-lo e conservá-lo é engrandecê-la e garantir a sustentabilidade e a vida.”</i>
         </p>
-
         <p>
             O livro também é uma homenagem implícita a todos os profissionais que, anonimamente ou não, colaboraram para a construção desse conhecimento. Para representar esse coletivo, destaca-se a trajetória de <b>Fernando Penteado Cardoso</b>, engenheiro agrônomo formado em 1936, que foi pioneiro nas práticas de conservação em suas próprias propriedades.
         </p>
-
         <p>
             Na década de 1940, enquanto instituições de pesquisa começavam os primeiros estudos sobre erosão, ele já aplicava técnicas conservacionistas em campo. Seu trabalho foi reconhecido oficialmente em 1991, e mais tarde ele lideraria ações de promoção da semeadura direta e da agricultura sustentável, culminando na criação de uma fundação dedicada a apoiar projetos nessa área.
         </p>
-
         <p><i>“O solo é um bem que tomamos emprestado de nossos sucessores.”</i></p>
-
         <p>
             Já nos momentos finais da produção deste volume, foi recebida a obra <b>“Manejo e Conservação do Solo no Agreste Pernambucano”</b>, de <b>Moacyr Britto de Freitas, Eliane Nogueira Choudhury e Clementino M. B. de Faria</b>, que ilustra perfeitamente a conexão entre ciência e realidade local.
         </p>
-
         <p>
             Sua obra serve como inspiração para novas gerações de profissionais que precisam enfrentar os desafios da produção agrícola em condições climáticas adversas, com responsabilidade e conhecimento técnico adequado.
         </p>
-
         <p>
             Este trabalho é uma valiosa contribuição para o aprimoramento do manejo e conservação dos solos brasileiros, sendo essencial para o desenvolvimento sustentável da agropecuária nacional.
         </p>
-
         <p><b>Preservar e melhorar o presente é assegurar o futuro e garantir a sustentabilidade.</b></p>
     </div>
 </body>

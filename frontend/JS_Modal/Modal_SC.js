@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Modal_SC.js carregado');
-
   const modal_SC = document.getElementById('janela-SC');
   const fechar18 = document.getElementById('fechar18');
-
   window.abrirModalSC = function() {
     console.log('abrirModalSC chamada');
     modal_SC.classList.add('abrir18');
