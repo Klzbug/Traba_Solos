@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz sobre Solos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .question p {
+            font-weight: bold;
+            margin-top: 0;
+        }
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        #results {
+            margin-top: 30px;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 5px;
+            display: none; /* Escondido por padrão */
+        }
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+        .incorrect {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Quiz: Conhecimento sobre Solos</h1>
+    
+    <form id="quizForm">
+        
+        <!-- Pergunta 1 -->
+        <div class="question">
+            <p>1. Qual é o componente do solo formado pela decomposição de matéria orgânica?</p>
+            <div class="options">
+                <label><input type="radio" name="q1" value="A" required> A) Argila</label>
+                <label><input type="radio" name="q1" value="B"> B) Silte</label>
+                <label><input type="radio" name="q1" value="C"> C) Húmus</label>
+                <label><input type="radio" name="q1" value="D"> D) Areia</label>
+            </div>
+        </div>
+
+        <!-- Pergunta 2 -->
+        <div class="question">
+            <p>2. Qual horizonte do solo é caracterizado por ser a camada superficial, rica em matéria orgânica e atividade biológica?</p>
+            <div class="options">
+                <label><input type="radio" name="q2" value="A" required> A) Horizonte B</label>
+                <label><input type="radio" name="q2" value="B"> B) Rocha Matriz</label>
+                <label><input type="radio" name="q2" value="C"> C) Horizonte C</label>
+                <label><input type="radio" name="q2" value="D"> D) Horizonte A</label>
+            </div>
+        </div>
+
+        <!-- Pergunta 3 -->
+        <div class="question">
+            <p>3. O que define a textura do solo?</p>
+            <div class="options">
+                <label><input type="radio" name="q3" value="A" required> A) A cor do solo</label>
+                <label><input type="radio" name="q3" value="B"> B) Proporção relativa de areia, silte e argila</label>
+                <label><input type="radio" name="q3" value="C"> C) O teor de água</label>
+                <label><input type="radio" name="q3" value="D"> D) A presença de minerais primários</label>
+            </div>
+        </div>
+
+        <button type="submit">Finalizar Quiz</button>
+    </form>
+
+    <div id="results">
+        <h2>Resultado</h2>
+        <p id="scoreMessage"></p>
+        <ul id="feedbackList"></ul>
+    </div>
+</div>
+
+<script>
+    document.getElementById('quizForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Impede o envio tradicional do formulário
+
+        const form = event.target;
+        const formData = new FormData(form);
+        
+        // Converte FormData para URLSearchParams para envio no formato x-www-form-urlencoded
+        const urlSearchParams = new URLSearchParams(formData);
+
+        // Envia os dados para o backend Python
+        fetch('http://localhost:5000/submit_quiz', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: urlSearchParams
+        })
+        .then(response => response.json())
+        .then(data => {
+            const resultsDiv = document.getElementById('results');
+            const scoreMessage = document.getElementById('scoreMessage');
+            const feedbackList = document.getElementById('feedbackList');
+            
+            // Limpa resultados anteriores
+            feedbackList.innerHTML = '';
+            
+            if (data.sucesso) {
+                // Exibe a mensagem de pontuação
+                scoreMessage.textContent = data.mensagem;
+                
+                // Exibe o feedback por pergunta
+                for (let i = 1; i <= data.total_perguntas; i++) {
+                    const qKey = 'q' + i;
+                    const status = data.resultados[qKey];
+                    const listItem = document.createElement('li');
+                    
+                    if (status === 'correta') {
+                        listItem.className = 'correct';
+                        listItem.textContent = `Pergunta ${i}: Correta!`;
+                    } else {
+                        listItem.className = 'incorrect';
+                        listItem.textContent = `Pergunta ${i}: Incorreta.`;
+                    }
+                    feedbackList.appendChild(listItem);
+                }
+                
+                resultsDiv.style.display = 'block';
+            } else {
+                scoreMessage.textContent = 'Erro ao processar o quiz: ' + data.mensagem;
+                resultsDiv.style.display = 'block';
+            }
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            document.getElementById('scoreMessage').textContent = 'Erro de conexão com o servidor Python. Certifique-se de que o backend está rodando em http://localhost:5000.';
+            document.getElementById('results').style.display = 'block';
+        });
+    });
+</script>
+
+</body>
+</html>
