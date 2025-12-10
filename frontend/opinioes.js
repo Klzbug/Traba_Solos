@@ -39,9 +39,9 @@ async function carregarOpinioes() {
     container.innerHTML = "⏳ Carregando opiniões...";
 
     try {
-        console.log(`🔄 Buscando opiniões de ${CONFIG.API_BASE_URL}/opinioes/`);
+        console.log(`🔄 Buscando opiniões de ${CONFIG.API_BASE_URL}/opinioes`);
         
-        const response = await fetch(`${CONFIG.API_BASE_URL}/opinioes/`, {
+        const response = await fetch(`${CONFIG.API_BASE_URL}/opinioes`, {
             method: 'GET',
             headers: { 'Content-Type': 'application/json' }
         });
@@ -114,7 +114,7 @@ async function enviarOpiniao(event) {
     try {
         console.log(`👤 Registrando pessoa: ${nome} (${email})`);
         
-        const pessoaResponse = await fetch(`${CONFIG.API_BASE_URL}/pessoas/`, {
+        const pessoaResponse = await fetch(`${CONFIG.API_BASE_URL}/pessoas`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ nome, email }),
