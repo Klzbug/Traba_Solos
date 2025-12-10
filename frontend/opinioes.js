@@ -6,8 +6,17 @@
 // =========================
 // CONFIGURAÇÃO DA API
 // ==========================
+// Detectar o ambiente (desenvolvimento ou produção)
+const isDevelopment = window.location.hostname === 'localhost' || 
+                      window.location.hostname === '127.0.0.1' ||
+                      window.location.hostname.includes('localhost');
+
+// URL da API - usa o proxy em /api
+const API_BASE_URL = isDevelopment ? '/api' : window.location.origin;
+
 const CONFIG = {
-    API_BASE_URL: "http://localhost:8000"
+    API_BASE_URL: API_BASE_URL,
+    isDevelopment: isDevelopment
 };
 
 // =========================
