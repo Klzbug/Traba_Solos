@@ -1,37 +1,25 @@
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, EmailStr
+from typing import Optional
+from datetime import datetime
 
-# ---------- Opiniões ----------
+class PessoaCreate(BaseModel):
+    nome: str
+    email: EmailStr
 
-class OpiniaoBase(BaseModel):
+class PessoaOut(BaseModel):
+    id: int
+    nome: str
+    email: str
+    class Config:
+        orm_mode = True
+
+class OpiniaoCreate(BaseModel):
     texto: str
 
-class OpiniaoCreate(OpiniaoBase):
-    pass
-
-class PessoaOpiniao(BaseModel):
-    nome: str
-    email: str
-    model_config = ConfigDict(from_attributes=True)
-
-class Opiniao(OpiniaoBase):
+class OpiniaoOut(BaseModel):
     id: int
-    pessoa_id: int
-    autor: PessoaOpiniao | None = None # O relacionamento pode não ser carregado em todos os contextos
-
-    model_config = ConfigDict(from_attributes=True)
-
-
-# ---------- Pessoas ----------
-
-class PessoaBase(BaseModel):
-    nome: str
-    email: str
-
-class PessoaCreate(PessoaBase):
-    pass
-
-class Pessoa(PessoaBase):
-    id: int
-    opinioes: list[Opiniao] = []
-
-    model_config = ConfigDict(from_attributes=True)
+    texto: str
+    data: datetime
+    pessoa: PessoaOut
+    class Config:
+        orm_mode = True
