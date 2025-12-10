@@ -16,7 +16,7 @@ def criar_pessoa(pessoa: schemas.PessoaCreate, db: Session = Depends(get_db)):
         return pessoa_existente
     
     # Se não existir, criar uma nova pessoa
-    nova = models.Pessoa(**pessoa.dict())
+    nova = models.Pessoa(**pessoa.model_dump())
     db.add(nova)
     db.commit()
     db.refresh(nova)
