@@ -64,9 +64,12 @@ async function carregarOpinioes() {
             const card = document.createElement("div");
             card.className = "opiniao-card";
 
+            const autorNome = opiniao.autor ? opiniao.autor.nome : 'Autor Desconhecido';
+            const autorEmail = opiniao.autor ? opiniao.autor.email : 'Email Desconhecido';
+
             card.innerHTML = `
-                <h4>💬 Opinião de ${escapeHtml(opiniao.autor.nome)}</h4>
-                <p class="email">📧 ${escapeHtml(opiniao.autor.email)}</p>
+                <h4>💬 Opinião de ${escapeHtml(autorNome)}</h4>
+                <p class="email">📧 ${escapeHtml(autorEmail)}</p>
                 <p>${escapeHtml(opiniao.texto)}</p>
             `;
 
