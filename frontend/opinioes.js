@@ -1,179 +1,92 @@
-/**
- * Script para gerenciar opiniões
- * Interage com a API para criar e listar opiniões
- */
+// Detecta se está em ambiente de desenvolvimento
+const isDevelopment =
+    window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1' ||
+    window.location.hostname.includes('localhost');
 
-// =========================
-// CONFIGURAÇÃO DA API
-// ==========================
-// Detectar o ambiente (desenvolvimento ou produção)
-const isDevelopment = window.location.hostname === 'localhost' || 
-                      window.location.hostname === '127.0.0.1' ||
-                      window.location.hostname.includes('localhost');
+// URL correta do backend (FastAPI)
+const API_BASE_URL = isDevelopment
+    ? 'http://localhost:8000'
+    : window.location.origin;
 
-// URL da API - usa o proxy em /api
-const API_BASE_URL = isDevelopment ? '/api' : window.location.origin;
-
+// Configuração global
 const CONFIG = {
-    API_BASE_URL: API_BASE_URL,
-    isDevelopment: isDevelopment
+    API_BASE_URL,
+    isDevelopment
 };
 
-// =========================
-// INICIALIZAÇÃO DA PÁGINA
-// =========================
-document.addEventListener("DOMContentLoaded", () => {
-    console.log('📄 Página de opiniões carregada');
-    carregarOpinioes();
+// Log para confirmar que está carregando certo
+console.log("🌍 API base URL:", CONFIG.API_BASE_URL);
+console.log("🔧 Ambiente de desenvolvimento:", isDevelopment);
 
-    document
-        .getElementById("opiniao-form")
-        .addEventListener("submit", enviarOpiniao);
-});
+// Carregar opiniões ao abrir a página
+document.addEventListener("DOMContentLoaded", carregarOpinioes);
 
-// =========================
-// CARREGAR OPINIÕES
-// =========================
+// Buscar e exibir opiniões
 async function carregarOpinioes() {
-    const container = document.getElementById("opinioes-container");
-    container.innerHTML = "⏳ Carregando opiniões...";
+    console.log("🔄 Buscando opiniões...");
 
     try {
-        console.log(`🔄 Buscando opiniões de ${CONFIG.API_BASE_URL}/opinioes`);
-        
-        const response = await fetch(`${CONFIG.API_BASE_URL}/opinioes`, {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' }
-        });
+        const response = await fetch(`${CONFIG.API_BASE_URL}/opinioes/`);
 
         if (!response.ok) {
-            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            throw new Error(`Erro na resposta da API: ${response.status}`);
         }
 
-        const opinioes = await response.json();
-        container.innerHTML = "";
+        const opnioes = await response.json();
+        console.log("📥 Opiniões recebidas:", opnioes);
 
-        if (!opinioes || opinioes.length === 0) {
-            container.innerHTML = "<p>📭 Nenhuma opinião encontrada. Seja o primeiro a comentar!</p>";
-            return;
-        }
+        const lista = document.querySelector("#lista-opinioes");
+        lista.innerHTML = "";
 
-        console.log(`✅ ${opinioes.length} opinião(ões) carregada(s)`);
-
-        opinioes.forEach(opiniao => {
-            const card = document.createElement("div");
-            card.className = "opiniao-card";
-
-            card.innerHTML = `
-                <h4>💬 Opinião de ${escapeHtml(opiniao.autor.nome)}</h4>
-                <p class="email">📧 ${escapeHtml(opiniao.autor.email)}</p>
-                <p>${escapeHtml(opiniao.texto)}</p>
-            `;
-
-            container.appendChild(card);
+        opnioes.forEach(op => {
+            const item = document.createElement("li");
+            item.textContent = `${op.nome}: ${op.mensagem}`;
+            lista.appendChild(item);
         });
 
-    } catch (error) {
-        console.error("❌ Erro ao carregar opiniões:", error);
-
-        container.innerHTML = `
-            <div style="padding: 20px; background-color: #fee; border: 1px solid #fcc; border-radius: 5px; color: #c33;">
-                <strong>⚠️ Erro ao conectar com a API</strong><br>
-                <p>Não foi possível carregar as opiniões.</p>
-                <p><strong>URL esperada:</strong> <code>${CONFIG.API_BASE_URL}/opinioes/</code></p>
-                <p><strong>Erro:</strong> ${escapeHtml(error.message)}</p>
-                <p style="font-size: 0.9em; margin-top: 10px;">
-                    Certifique-se de que o servidor FastAPI está rodando em <code>${CONFIG.API_BASE_URL}</code>
-                </p>
-                <button onclick="carregarOpinioes()" style="margin-top: 10px; padding: 8px 16px; background-color: #0066cc; color: white; border: none; border-radius: 3px; cursor: pointer;">
-                    🔄 Tentar Novamente
-                </button>
-            </div>
-        `;
+    } catch (err) {
+        console.error("❌ Erro ao carregar opiniões:", err);
+        alert("Erro ao carregar opiniões. Verifique o console.");
     }
 }
 
-// =========================
-// ENVIAR OPINIÃO
-// =========================
-async function enviarOpiniao(event) {
-    event.preventDefault();
+// Enviar nova opinião
+async function enviarOpiniao() {
+    const nome = document.querySelector("#nome").value.trim();
+    const mensagem = document.querySelector("#mensagem").value.trim();
 
-    const nome  = document.getElementById("nome").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const texto = document.getElementById("texto").value.trim();
-
-    if (!nome || !email || !texto) {
-        alert("❌ Por favor, preencha todos os campos!");
+    if (!nome || !mensagem) {
+        alert("Preencha nome e opinião!");
         return;
     }
 
-    let pessoaId;
+    const opiniao = { nome, mensagem };
 
-    // ---------- Criar ou buscar pessoa ----------
     try {
-        console.log(`👤 Registrando pessoa: ${nome} (${email})`);
-        
-        const pessoaResponse = await fetch(`${CONFIG.API_BASE_URL}/pessoas`, {
+        const resposta = await fetch(`${CONFIG.API_BASE_URL}/opinioes/`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ nome, email }),
+            body: JSON.stringify(opiniao)
         });
 
-        if (!pessoaResponse.ok) {
-            throw new Error(`HTTP ${pessoaResponse.status}: ${pessoaResponse.statusText}`);
+        if (!resposta.ok) {
+            throw new Error("Erro ao enviar opinião.");
         }
 
-        const pessoa = await pessoaResponse.json();
-        pessoaId = pessoa.id;
+        console.log("📤 Opinião enviada com sucesso!");
 
-        console.log(`✅ Pessoa registrada/encontrada com ID: ${pessoaId}`);
-
-    } catch (error) {
-        console.error("❌ Erro ao registrar a pessoa:", error);
-        alert(`❌ Erro ao registrar a pessoa: ${error.message}`);
-        return;
-    }
-
-    // ---------- Enviar opinião ----------
-    try {
-        console.log(`💬 Enviando opinião para pessoa ID: ${pessoaId}`);
-        
-        const opiniaoResponse = await fetch(`${CONFIG.API_BASE_URL}/opinioes/${pessoaId}`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ texto }),
-        });
-
-        if (!opiniaoResponse.ok) {
-            throw new Error(`HTTP ${opiniaoResponse.status}: ${opiniaoResponse.statusText}`);
-        }
-
-        const opiniao = await opiniaoResponse.json();
-        console.log(`✅ Opinião enviada com sucesso! ID: ${opiniao.id}`);
-
-        alert("✅ Opinião enviada com sucesso!");
-        document.getElementById("opiniao-form").reset();
-
+        // Recarregar lista
         carregarOpinioes();
 
+        document.querySelector("#nome").value = "";
+        document.querySelector("#mensagem").value = "";
+
     } catch (error) {
-        console.error("❌ Erro ao enviar a opinião:", error);
-        alert(`❌ Erro ao enviar a opinião: ${error.message}`);
+        console.error("❌ Erro ao enviar opinião:", error);
+        alert("Erro ao enviar opinião. Veja o console.");
     }
 }
 
-// =========================
-// FUNÇÃO ÚNICA ESCAPE HTML (CORRIGIDO)
-// =========================
-function escapeHtml(text) {
-    if (!text) return "";
-    const map = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#039;'
-    };
-    return text.replace(/[&<>"']/g, m => map[m]);
-}
+// Deixar a função disponível globalmente no botão
+window.enviarOpiniao = enviarOpiniao;
