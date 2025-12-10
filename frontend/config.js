@@ -4,7 +4,7 @@ const isDevelopment =
     window.location.hostname.includes('github.dev');
 
 const API_BASE_URL = isDevelopment
-    ? '/api' // Usa o proxy configurado no server.js
+    ? 'https://8000-i8gwyhdy819vojw36e6bb-23f0e415.manus-asia.computer' // URL pública do backend no sandbox
     : window.location.origin;
 
 const CONFIG = {
