@@ -11,7 +11,7 @@ const isDevelopment = window.location.hostname === 'localhost' ||
 // URL da API
 // Em desenvolvimento: usa o proxy em /api
 // Em produção: usa a mesma origem
-const API_BASE_URL = isDevelopment ? 'https://redesigned-parakeet-wr9jww7pgj6g2qxv-5505.app.github.dev/opinioes/' : window.location.origin;
+const API_BASE_URL = isDevelopment ? 'https://redesigned-parakeet-wr9jww7pgj6g2qxv-5506.app.github.dev/opinioes/' : window.location.origin;
 
 // Configurações gerais
 const CONFIG = {

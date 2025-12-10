@@ -19,6 +19,29 @@ document.addEventListener("DOMContentLoaded", () => {
 // =========================
 // CARREGAR OPINIÕES
 // =========================
+// ==========================
+// CONFIGURAÇÃO DA API
+// ==========================
+const CONFIG = {
+    API_BASE_URL: "http://localhost:8000"  // ⬅️ Ajuste aqui se sua API tiver outra URL
+};
+
+// ==========================
+// FUNÇÃO DE SEGURANÇA (EVITA XSS)
+// ==========================
+function escapeHtml(text) {
+    if (!text) return "";
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+// ==========================
+// FUNÇÃO PRINCIPAL
+// ==========================
 async function carregarOpinioes() {
     const container = document.getElementById("opinioes-container");
     container.innerHTML = "⏳ Carregando opiniões...";
@@ -70,7 +93,7 @@ async function carregarOpinioes() {
                 <p><strong>URL esperada:</strong> <code>${CONFIG.API_BASE_URL}/opinioes/</code></p>
                 <p><strong>Erro:</strong> ${escapeHtml(error.message)}</p>
                 <p style="font-size: 0.9em; margin-top: 10px;">
-                    Certifique-se de que o servidor FastAPI está rodando em <code>http://localhost:8000</code>
+                    Certifique-se de que o servidor FastAPI está rodando em <code>${CONFIG.API_BASE_URL}</code>
                 </p>
                 <button onclick="carregarOpinioes()" style="margin-top: 10px; padding: 8px 16px; background-color: #0066cc; color: white; border: none; border-radius: 3px; cursor: pointer;">
                     🔄 Tentar Novamente
@@ -80,7 +103,10 @@ async function carregarOpinioes() {
     }
 }
 
-
+// ==========================
+// CARREGAR AUTOMÁTICO AO ABRIR A PÁGINA
+// ==========================
+document.addEventListener("DOMContentLoaded", carregarOpinioes);
 
 // =========================
 // ENVIAR OPINIÃO
