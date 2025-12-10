@@ -4,44 +4,27 @@
  */
 
 // =========================
+// CONFIGURAÇÃO DA API
+// ==========================
+const CONFIG = {
+    API_BASE_URL: "http://localhost:8000"
+};
+
+// =========================
 // INICIALIZAÇÃO DA PÁGINA
 // =========================
 document.addEventListener("DOMContentLoaded", () => {
     console.log('📄 Página de opiniões carregada');
     carregarOpinioes();
+
     document
         .getElementById("opiniao-form")
         .addEventListener("submit", enviarOpiniao);
 });
 
-
-
 // =========================
 // CARREGAR OPINIÕES
 // =========================
-// ==========================
-// CONFIGURAÇÃO DA API
-// ==========================
-const CONFIG = {
-    API_BASE_URL: "http://localhost:8000"  // ⬅️ Ajuste aqui se sua API tiver outra URL
-};
-
-// ==========================
-// FUNÇÃO DE SEGURANÇA (EVITA XSS)
-// ==========================
-function escapeHtml(text) {
-    if (!text) return "";
-    return text
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-}
-
-// ==========================
-// FUNÇÃO PRINCIPAL
-// ==========================
 async function carregarOpinioes() {
     const container = document.getElementById("opinioes-container");
     container.innerHTML = "⏳ Carregando opiniões...";
@@ -51,9 +34,7 @@ async function carregarOpinioes() {
         
         const response = await fetch(`${CONFIG.API_BASE_URL}/opinioes/`, {
             method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            }
+            headers: { 'Content-Type': 'application/json' }
         });
 
         if (!response.ok) {
@@ -103,11 +84,6 @@ async function carregarOpinioes() {
     }
 }
 
-// ==========================
-// CARREGAR AUTOMÁTICO AO ABRIR A PÁGINA
-// ==========================
-document.addEventListener("DOMContentLoaded", carregarOpinioes);
-
 // =========================
 // ENVIAR OPINIÃO
 // =========================
@@ -118,7 +94,6 @@ async function enviarOpiniao(event) {
     const email = document.getElementById("email").value.trim();
     const texto = document.getElementById("texto").value.trim();
 
-    // Validação básica
     if (!nome || !email || !texto) {
         alert("❌ Por favor, preencha todos os campos!");
         return;
@@ -126,15 +101,13 @@ async function enviarOpiniao(event) {
 
     let pessoaId;
 
+    // ---------- Criar ou buscar pessoa ----------
     try {
-        // ---------- Criar ou buscar pessoa ----------
         console.log(`👤 Registrando pessoa: ${nome} (${email})`);
         
         const pessoaResponse = await fetch(`${CONFIG.API_BASE_URL}/pessoas/`, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ nome, email }),
         });
 
@@ -144,6 +117,7 @@ async function enviarOpiniao(event) {
 
         const pessoa = await pessoaResponse.json();
         pessoaId = pessoa.id;
+
         console.log(`✅ Pessoa registrada/encontrada com ID: ${pessoaId}`);
 
     } catch (error) {
@@ -158,9 +132,7 @@ async function enviarOpiniao(event) {
         
         const opiniaoResponse = await fetch(`${CONFIG.API_BASE_URL}/opinioes/${pessoaId}`, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ texto }),
         });
 
@@ -174,7 +146,6 @@ async function enviarOpiniao(event) {
         alert("✅ Opinião enviada com sucesso!");
         document.getElementById("opiniao-form").reset();
 
-        // Atualizar lista de opiniões
         carregarOpinioes();
 
     } catch (error) {
@@ -183,18 +154,11 @@ async function enviarOpiniao(event) {
     }
 }
 
-
-
 // =========================
-// FUNÇÕES AUXILIARES
+// FUNÇÃO ÚNICA ESCAPE HTML (CORRIGIDO)
 // =========================
-
-/**
- * Escapa caracteres HTML para evitar XSS
- * @param {string} text - Texto a ser escapado
- * @returns {string} Texto escapado
- */
 function escapeHtml(text) {
+    if (!text) return "";
     const map = {
         '&': '&amp;',
         '<': '&lt;',
