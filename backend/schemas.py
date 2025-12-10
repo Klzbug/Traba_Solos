@@ -11,7 +11,7 @@ class PessoaOut(BaseModel):
     nome: str
     email: str
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class OpiniaoCreate(BaseModel):
     texto: str
@@ -22,4 +22,4 @@ class OpiniaoOut(BaseModel):
     data: datetime
     pessoa: PessoaOut
     class Config:
-        orm_mode = True
+        from_attributes = True
